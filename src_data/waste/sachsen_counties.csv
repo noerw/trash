@@ -1,0 +1,37 @@
+GENESIS-Tabelle: 32111-016K
+Abfallentsorgung: Entsorgungs- u. Behandlungsanlagen,;;;;;;;
+Abfallmengen - Kreise (Gebietsstand ab 01.08.08) -;;;;;;;
+Jahr (ab 2004);;;;;;;
+Stat.d.Abfallentsorgung in d.Entsorgungswirtschaft;;;;;;;
+Berichtsjahr: 2016;;;;;;;
+;;Entsorgungs- und Behandlungsanlagen 1);entsorgte/behandelte Abfallmenge insgesamt;dar. aus dem eigenen Bundesland 2);abgegebene Abfallmenge;Deponien;abgelagerte Abfallmenge in Deponien
+;;Anzahl;t;t;t;Anzahl;t
+14;Freistaat Sachsen;327;5832004;3763639;3647237;6;1043559
+145;  Chemnitz, NUTS 2-Region;138;1426864;914339;1248610;-;-
+14511;    Chemnitz, Stadt;16;208783;190057;161486;-;-
+14521;    Erzgebirgskreis;36;124476;78894;130129;-;-
+14522;    Mittelsachsen, Landkreis;38;604664;306329;527243;-;-
+14523;    Vogtlandkreis;23;259784;156160;224514;-;-
+14524;    Zwickau, Landkreis;25;229158;182900;205238;-;-
+146;  Dresden, NUTS 2-Region;118;1999241;1550912;1054061;5;.
+14612;    Dresden, Stadt;24;478997;392769;379339;-;-
+14625;    Bautzen, Landkreis;39;753894;567624;255775;1;.
+14626;    Görlitz, Landkreis;25;518194;419159;274337;2;.
+14627;    Meißen, Landkreis;19;121871;87973;99868;1;.
+14628;    Sächsische Schweiz-Osterzgebirge, Landkreis;11;126285;83387;44741;1;.
+147;  Leipzig, NUTS 2-Region;71;2405899;1298389;1344566;1;.
+14713;    Leipzig, Stadt;21;245557;179142;222520;-;-
+14729;    Leipzig, Landkreis;32;2055752;1033693;1039343;1;.
+14730;    Nordsachsen, Landkreis;18;104590;85554;82704;-;-
+__________
+"ab 2004:
+Einschließlich besonders überwachungsbedürftiger Abfälle.
+Die Tabelle enthält Mehrfachzählungen von mehrfach
+behandelten Abfallströmen.
+ 
+1) Einschließlich ruhende Anlagen (IOLEER), ohne Deponien
+in der Stilllegungsphase (IOSTILL).
+ 
+2) bis 2005: ohne betriebseigene Abfälle"
+© Statistisches Landesamt des Freistaates Sachsen, 2018 
+Stand: 04.12.2018 / 14:45:15

@@ -1,0 +1,78 @@
+GENESIS-Tabelle: 32111-01iz
+Abfallentsorgung:;;;;;;;
+Entsorgungs- und Behandlungsanlagen, Abfallmenge;;;;;;;
+- kreisfreie Städte und Kreise - Jahr;;;;;;;
+Statistik der Abfallentsorgung;;;;;;;
+2015;;;;;;;
+;;Entsorgungs- und Behandlungsanlagen;Entsorgte / behandelte Abfallmenge;Entsorgte/beh. Abfallmenge a.d. eigenen B.-Land;Abgegebene Abfallmenge;Deponien;In Deponien abgelagerte Abfallmenge
+;;Anzahl;t;t;t;Anzahl;t
+05;Nordrhein-Westfalen;1770;58965980;51316836;29794882;135;16575641
+051;  Düsseldorf, Regierungsbezirk;420;17769403;15408174;9286798;23;5131842
+05111;    Düsseldorf, krfr. Stadt;30;1265956;1243835;766540;1;150340
+05112;    Duisburg, krfr. Stadt;60;2004314;1353518;1280309;1;771
+05113;    Essen, krfr. Stadt;48;1299918;1063956;834665;-;-
+05114;    Krefeld, krfr. Stadt;29;1880229;1163225;1546707;-;-
+05116;    Mönchengladbach, krfr. Stadt;15;491495;482902;323418;2;91882
+05117;    Mülheim an der Ruhr, krfr. Stadt;16;563171;378489;314685;1;203623
+05119;    Oberhausen, krfr. Stadt;17;1160536;977065;679639;-;-
+05120;    Remscheid, krfr. Stadt;9;94955;94955;93579;-;-
+05122;    Solingen, krfr. Stadt;9;243204;235552;134894;-;-
+05124;    Wuppertal, krfr. Stadt;30;1924761;1913015;504697;2;941745
+05154;    Kleve, Kreis;25;274436;253924;237936;1;1350
+05158;    Mettmann, Kreis;29;723384;722595;504731;3;188408
+05162;    Rhein-Kreis Neuss;37;3690931;3514409;932442;3;2654700
+05166;    Viersen, Kreis;29;555324;546572;389431;3;194834
+05170;    Wesel, Kreis;37;1596788;1464164;743127;6;704190
+053;  Köln, Regierungsbezirk;324;15312234;13777138;5088685;28;7244619
+05313;    Aachen, krfr. Stadt;-;-;-;-;-;-
+05314;    Bonn, krfr. Stadt;13;487537;444863;292406;-;-
+05315;    Köln, krfr. Stadt;50;2235223;2114870;1425702;3;343770
+05316;    Leverkusen, krfr. Stadt;16;932816;782789;219071;1;379608
+05334;    Städteregion Aachen (einschl. Stadt Aachen);40;2910027;2532891;724531;1;1442869
+05354;    Aachen, Kreis;-;-;-;-;-;-
+05358;    Düren, Kreis;28;1364664;1344777;417051;3;866210
+05362;    Rhein-Erft-Kreis;59;4972134;4252130;924265;7;3091653
+05366;    Euskirchen, Kreis;17;154898;143036;114386;-;-
+05370;    Heinsberg, Kreis;23;630960;596823;93373;4;461417
+05374;    Oberbergischer Kreis;26;395120;392186;137609;3;225008
+05378;    Rheinisch-Bergischer Kreis;13;402105;402105;181044;1;204486
+05382;    Rhein-Sieg-Kreis;39;826751;770668;559246;5;229599
+055;  Münster, Regierungsbezirk;316;8754598;7809235;5245703;4;671078
+05512;    Bottrop, krfr. Stadt;17;2448923;2405803;956592;-;-
+05513;    Gelsenkirchen, krfr. Stadt;22;1232977;1145093;612618;1;543231
+05515;    Münster, krfr. Stadt;25;225035;214275;172170;1;27285
+05554;    Borken, Kreis;70;1018896;873881;816988;-;-
+05558;    Coesfeld, Kreis;23;171064;165606;255128;-;-
+05562;    Recklinghausen, Kreis;64;2006306;1749899;1355705;-;-
+05566;    Steinfurt, Kreis;53;952952;675926;747069;1;19588
+05570;    Warendorf, Kreis;42;698447;578753;329434;1;80974
+057;  Detmold, Regierungsbezirk;314;5512933;4631235;3088185;42;1206893
+05711;    Bielefeld, krfr. Stadt;23;713618;664544;375779;2;100000
+05754;    Gütersloh, Kreis;56;1239126;1093434;830085;1;28969
+05758;    Herford, Kreis;46;403109;382742;253833;3;127550
+05762;    Höxter, Kreis;44;832262;626335;373540;14;243878
+05766;    Lippe, Kreis;54;762681;672595;223216;9;295152
+05770;    Minden-Lübbecke, Kreis;52;898671;572326;687139;5;133244
+05774;    Paderborn, Kreis;39;663466;619259;344592;8;278100
+059;  Arnsberg, Regierungsbezirk;396;11616812;9691053;7085512;38;2321209
+05911;    Bochum, krfr. Stadt;25;347564;323493;274458;1;0
+05913;    Dortmund, krfr. Stadt;34;1251319;1165418;947160;1;394040
+05914;    Hagen, krfr. Stadt;27;731716;712002;396705;1;0
+05915;    Hamm, krfr. Stadt;12;575925;402389;324583;1;21565
+05916;    Herne, krfr. Stadt;12;410773;296265;282023;-;-
+05954;    Ennepe-Ruhr-Kreis;31;650383;512727;574878;2;103746
+05958;    Hochsauerlandkreis;49;835079;773650;326832;16;383194
+05962;    Märkischer Kreis;42;979237;911635;388320;2;155186
+05966;    Olpe, Kreis;13;169671;148884;100168;1;13798
+05970;    Siegen-Wittgenstein, Kreis;35;813584;743030;441315;4;265121
+05974;    Soest, Kreis;57;1413184;1337866;394977;4;702823
+05978;    Unna, Kreis;59;3438378;2363695;2634093;5;281738
+__________
+"zu ""Entsorgte/beh. Abfallmenge a.d. eigenen B.-Land""
+Der vollständige Text lautet:
+Entsorgte/behandelte Abfallmenge, aus dem eigenen Bundesland
+angeliefert
+ 
+Tabelle ohne Bauschuttrecyclinganlagen"
+© IT.NRW, Düsseldorf, 2018. Dieses Werk ist lizenziert unter der Datenlizenz Deutschland - Namensnennung - Version 2.0.
+Stand: 04.12.2018 / 14:41:09
