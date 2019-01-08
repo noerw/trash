@@ -1,0 +1,1464 @@
+ex:recyclingMeasurement a qb:Measure,
+    sdmx:attribute iso37120:16.3.
+
+ex:dataset a qb:Dataset,
+    dc:title "Muell",
+    dct:license "Open Government License Blabla".
+
+ex:AT_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "AT",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "7008".
+
+ex:AT_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "AT",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "6537".
+
+ex:AT_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "AT",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "5699".
+
+ex:AT_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "AT",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "5596".
+
+ex:AT_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "AT",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "6767".
+
+ex:AT_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "AT",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "6565".
+
+ex:AT_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "AT",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "6488".
+
+ex:BA_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "BA",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "1161".
+
+ex:BE_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "BE",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "5573".
+
+ex:BE_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "BE",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "5171".
+
+ex:BE_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "BE",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "4847".
+
+ex:BE_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "BE",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "5630".
+
+ex:BE_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "BE",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "4540".
+
+ex:BE_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "BE",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "5627".
+
+ex:BE_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "BE",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "5068".
+
+ex:BG_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "BG",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "16907".
+
+ex:BG_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "BG",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "24872".
+
+ex:BG_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "BG",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "22072".
+
+ex:BG_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "BG",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "22635".
+
+ex:BG_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "BG",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "22375".
+
+ex:BG_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "BG",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "21429".
+
+ex:BG_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "BG",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "26050".
+
+ex:CY_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "CY",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "2892".
+
+ex:CY_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "CY",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "2316".
+
+ex:CY_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "CY",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "2165".
+
+ex:CY_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "CY",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "2861".
+
+ex:CY_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "CY",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "2343".
+
+ex:CY_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "CY",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "1663".
+
+ex:CY_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "CY",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "3079".
+
+ex:CZ_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "CZ",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "2402".
+
+ex:CZ_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "CZ",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "2223".
+
+ex:CZ_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "CZ",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "2205".
+
+ex:CZ_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "CZ",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "2268".
+
+ex:CZ_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "CZ",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "2448".
+
+ex:CZ_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "CZ",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "2417".
+
+ex:CZ_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "CZ",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "2871".
+
+ex:DE_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "DE",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "4858".
+
+ex:DE_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "DE",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "4785".
+
+ex:DE_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "DE",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "4576".
+
+ex:DE_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "DE",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "4446".
+
+ex:DE_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "DE",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "4540".
+
+ex:DE_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "DE",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "4416".
+
+ex:DE_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "DE",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "4412".
+
+ex:DK_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "DK",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "3663".
+
+ex:DK_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "DK",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "3687".
+
+ex:DK_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "DK",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "2989".
+
+ex:DK_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "DK",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "2923".
+
+ex:DK_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "DK",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "2759".
+
+ex:DK_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "DK",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "2704".
+
+ex:DK_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "DK",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "2329".
+
+ex:EE_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "EE",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "18451".
+
+ex:EE_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "EE",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "16587".
+
+ex:EE_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "EE",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "16627".
+
+ex:EE_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "EE",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "14270".
+
+ex:EE_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "EE",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "14647".
+
+ex:EE_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "EE",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "14058".
+
+ex:EE_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "EE",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "15310".
+
+ex:EL_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "EL",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "6404".
+
+ex:EL_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "EL",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "6549".
+
+ex:EL_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "EL",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "6333".
+
+ex:EL_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "EL",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "6197".
+
+ex:EL_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "EL",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "4657".
+
+ex:EL_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "EL",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "3044".
+
+ex:ES_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "ES",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "2774".
+
+ex:ES_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "ES",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "2378".
+
+ex:ES_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "ES",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "2535".
+
+ex:ES_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "ES",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "2953".
+
+ex:ES_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "ES",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "3248".
+
+ex:ES_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "ES",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "3625".
+
+ex:ES_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "ES",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "3743".
+
+ex:EU28_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "EU28",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "4962".
+
+ex:EU28_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "EU28",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "4955".
+
+ex:EU28_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "EU28",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "4939".
+
+ex:EU28_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "EU28",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "4891".
+
+ex:EU28_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "EU28",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "4842".
+
+ex:EU28_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "EU28",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "5162".
+
+ex:EU28_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "EU28",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "5161".
+
+ex:FI_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "FI",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "22359".
+
+ex:FI_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "FI",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "17572".
+
+ex:FI_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "FI",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "16961".
+
+ex:FI_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "FI",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "19454".
+
+ex:FI_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "FI",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "15394".
+
+ex:FI_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "FI",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "13711".
+
+ex:FI_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "FI",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "13333".
+
+ex:FR_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "FR",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "4838".
+
+ex:FR_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "FR",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "4910".
+
+ex:FR_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "FR",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "5268".
+
+ex:FR_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "FR",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "5478".
+
+ex:FR_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "FR",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "5376".
+
+ex:FR_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "FR",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "4923".
+
+ex:FR_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "FR",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "4743".
+
+ex:HR_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "HR",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "1265".
+
+ex:HR_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "HR",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "879".
+
+ex:HR_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "HR",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "789".
+
+ex:HR_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "HR",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "735".
+
+ex:HR_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "HR",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "968".
+
+ex:HR_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "HR",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "1258".
+
+ex:HR_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "HR",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "1673".
+
+ex:HU_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "HU",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "1621".
+
+ex:HU_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "HU",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "1688".
+
+ex:HU_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "HU",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "1644".
+
+ex:HU_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "HU",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "1674".
+
+ex:HU_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "HU",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "1688".
+
+ex:HU_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "HU",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "2213".
+
+ex:HU_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "HU",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "2440".
+
+ex:IE_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "IE",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "3256".
+
+ex:IE_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "IE",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "2764".
+
+ex:IE_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "IE",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "4344".
+
+ex:IE_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "IE",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "5012".
+
+ex:IE_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "IE",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "6926".
+
+ex:IE_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "IE",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "6019".
+
+ex:IS_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "IS",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "3182".
+
+ex:IS_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "IS",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "2441".
+
+ex:IS_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "IS",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "1651".
+
+ex:IS_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "IS",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "1607".
+
+ex:IS_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "IS",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "2434".
+
+ex:IS_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "IS",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "1717".
+
+ex:IT_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "IT",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "2705".
+
+ex:IT_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "IT",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "2597".
+
+ex:IT_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "IT",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "2594".
+
+ex:IT_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "IT",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "2676".
+
+ex:IT_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "IT",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "3047".
+
+ex:IT_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "IT",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "2666".
+
+ex:IT_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "IT",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "2424".
+
+ex:LI_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LI",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "13325".
+
+ex:LI_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LI",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "15278".
+
+ex:LI_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LI",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "12727".
+
+ex:LI_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LI",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "8666".
+
+ex:LI_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LI",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "10806".
+
+ex:LT_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LT",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "2317".
+
+ex:LT_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LT",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "2114".
+
+ex:LT_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LT",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "1901".
+
+ex:LT_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LT",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "1801".
+
+ex:LT_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LT",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "1980".
+
+ex:LT_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LT",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "1945".
+
+ex:LT_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LT",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "2076".
+
+ex:LU_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LU",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "17405".
+
+ex:LU_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LU",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "12713".
+
+ex:LU_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LU",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "15816".
+
+ex:LU_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LU",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "20597".
+
+ex:LU_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LU",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "19630".
+
+ex:LU_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LU",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "17728".
+
+ex:LU_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LU",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "18153".
+
+ex:LV_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LV",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "1292".
+
+ex:LV_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LV",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "1315".
+
+ex:LV_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LV",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "1135".
+
+ex:LV_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LV",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "714".
+
+ex:LV_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LV",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "687".
+
+ex:LV_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LV",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "838".
+
+ex:LV_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "LV",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "556".
+
+ex:ME_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "ME",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "2708".
+
+ex:ME_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "ME",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "1872".
+
+ex:ME_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "ME",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "621".
+
+ex:MK_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "MK",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "688".
+
+ex:MK_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "MK",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "1058".
+
+ex:MK_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "MK",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "4111".
+
+ex:MK_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "MK",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "1133".
+
+ex:MK_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "MK",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "666".
+
+ex:MT_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "MT",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "4329".
+
+ex:MT_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "MT",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "3831".
+
+ex:MT_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "MT",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "3467".
+
+ex:MT_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "MT",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "3264".
+
+ex:MT_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "MT",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "5057".
+
+ex:MT_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "MT",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "7060".
+
+ex:MT_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "MT",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "7840".
+
+ex:NL_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "NL",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "8281".
+
+ex:NL_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "NL",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "7848".
+
+ex:NL_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "NL",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "7233".
+
+ex:NL_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "NL",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "7291".
+
+ex:NL_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "NL",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "6242".
+
+ex:NL_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "NL",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "6067".
+
+ex:NL_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "NL",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "5678".
+
+ex:NO_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "NO",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "2139".
+
+ex:NO_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "NO",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "2066".
+
+ex:NO_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "NO",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "2136".
+
+ex:NO_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "NO",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "1929".
+
+ex:NO_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "NO",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "2157".
+
+ex:NO_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "NO",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "2127".
+
+ex:NO_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "NO",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "1623".
+
+ex:PL_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "PL",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "4793".
+
+ex:PL_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "PL",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "4714".
+
+ex:PL_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "PL",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "4266".
+
+ex:PL_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "PL",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "4171".
+
+ex:PL_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "PL",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "3645".
+
+ex:PL_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "PL",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "4028".
+
+ex:PL_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "PL",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "3601".
+
+ex:PT_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "PT",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "1427".
+
+ex:PT_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "PT",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "1402".
+
+ex:PT_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "PT",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "1349".
+
+ex:PT_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "PT",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "1637".
+
+ex:PT_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "PT",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "1599".
+
+ex:PT_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "PT",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "3322".
+
+ex:PT_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "PT",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "2796".
+
+ex:RO_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "RO",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "9012".
+
+ex:RO_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "RO",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "8871".
+
+ex:RO_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "RO",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "12432".
+
+ex:RO_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "RO",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "9949".
+
+ex:RO_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "RO",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "9209".
+
+ex:RO_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "RO",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "16248".
+
+ex:RO_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "RO",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "17215".
+
+ex:RS_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "RS",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "6937".
+
+ex:RS_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "RS",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "6890".
+
+ex:RS_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "RS",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "7640".
+
+ex:RS_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "RS",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "4610".
+
+ex:SE_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "SE",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "14272".
+
+ex:SE_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "SE",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "17226".
+
+ex:SE_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "SE",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "16420".
+
+ex:SE_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "SE",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "12545".
+
+ex:SE_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "SE",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "9346".
+
+ex:SE_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "SE",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "10459".
+
+ex:SE_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "SE",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "10203".
+
+ex:SI_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "SI",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "2672".
+
+ex:SI_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "SI",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "2273".
+
+ex:SI_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "SI",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "2210".
+
+ex:SI_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "SI",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "2922".
+
+ex:SI_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "SI",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "2493".
+
+ex:SI_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "SI",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "3008".
+
+ex:SI_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "SI",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "2890".
+
+ex:SK_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "SK",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "1953".
+
+ex:SK_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "SK",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "1636".
+
+ex:SK_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "SK",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "1558".
+
+ex:SK_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "SK",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "1741".
+
+ex:SK_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "SK",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "2133".
+
+ex:SK_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "SK",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "2699".
+
+ex:SK_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "SK",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "1986".
+
+ex:TR_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "TR",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "953".
+
+ex:TR_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "TR",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "947".
+
+ex:TR_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "TR",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "896".
+
+ex:TR_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "TR",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "869".
+
+ex:TR_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "TR",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "912".
+
+ex:TR_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "TR",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "665".
+
+ex:TR_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "TR",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "870".
+
+ex:UK_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "UK",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "4227".
+
+ex:UK_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "UK",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "4204".
+
+ex:UK_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "UK",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "3903".
+
+ex:UK_2010_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "UK",
+    sdmx-concept:refPeriod "2010",
+    iso37120:16.3 "3944".
+
+ex:UK_2008_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "UK",
+    sdmx-concept:refPeriod "2008",
+    iso37120:16.3 "4566".
+
+ex:UK_2006_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "UK",
+    sdmx-concept:refPeriod "2006",
+    iso37120:16.3 "4785".
+
+ex:UK_2004_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "UK",
+    sdmx-concept:refPeriod "2004",
+    iso37120:16.3 "4981".
+
+ex:XK_2016_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "XK",
+    sdmx-concept:refPeriod "2016",
+    iso37120:16.3 "1607".
+
+ex:XK_2014_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "XK",
+    sdmx-concept:refPeriod "2014",
+    iso37120:16.3 "574".
+
+ex:XK_2012_GEN_HH a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "XK",
+    sdmx-concept:refPeriod "2012",
+    iso37120:16.3 "646".
+
+
+
+ex:datenNuts0 ex:hasObservation ex:DE2017; ex:UK2017;...
+ex:datenNuts1 ex:hasObservation ex:nrw2017; ex:sachsen2017;...
+

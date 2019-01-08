@@ -1,0 +1,20 @@
+ex:recyclingMeasurement a qb:Measure,
+    sdmx:attribute iso37120:16.3.
+
+ex:dataset a qb:Dataset,
+    dc:title "Muell",
+    dct:license "Open Government License Blabla".
+
+{{#each observations}}
+ex:{{observation_id}} a qb:Observation,
+    qb:dataset ex:dataset,
+    ex:refArea "{{geo_nuts}}",
+    sdmx-concept:refPeriod "{{year}}",
+    {{phenomenon}} "{{observation_value}}".
+
+{{/each}}
+
+
+ex:datenNuts0 ex:hasObservation ex:DE2017; ex:UK2017;...
+ex:datenNuts1 ex:hasObservation ex:nrw2017; ex:sachsen2017;...
+
