@@ -2,8 +2,13 @@
 
 open data in CSV format
 
-## sources
+The relevant data subsetwas extracted from the source data by..
+- filtering to relevant phenomena
+- coercing to common CSV schema
+- filling NAs properly (empty cell)
+- bringing observations to same unit (tonnes per capita)
 
+## sources
 
 - EU https://ec.europa.eu/eurostat/web/waste/data/database
 
