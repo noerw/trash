@@ -75,7 +75,7 @@ for (const row of csvRows) {
 
     observations.push({
       geo_nuts,
-      observation_id: `${geo_nuts}_${year}_${phenomenon}`,
+      observation_id: `obs_${phenomenon}_${geo_nuts}_${year}`,
       observation_value,
       phenomenon: phenomenon_mapping[phenomenon] || 'unknown',
       unit,

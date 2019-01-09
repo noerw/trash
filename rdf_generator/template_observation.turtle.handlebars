@@ -1,3 +1,5 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
 ex:recyclingMeasurement a qb:Measure,
     sdmx:attribute iso37120:16.3.
 
@@ -9,8 +11,8 @@ ex:dataset a qb:Dataset,
 ex:{{observation_id}} a qb:Observation,
     qb:dataset ex:dataset,
     ex:refArea "{{geo_nuts}}",
-    sdmx-concept:refPeriod "{{year}}",
-    {{phenomenon}} "{{observation_value}}".
+    sdmx-concept:refPeriod "{{year}}"^^xsd:gYear,
+    {{phenomenon}} {{observation_value}}.
 
 {{/each}}
 
