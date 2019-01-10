@@ -1,22 +1,75 @@
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix this: <http://course.geoinfo2018.org/G3#>.
 
-ex:recyclingMeasurement a qb:Measure,
-    sdmx:attribute iso37120:16.3.
+@prefix dbpedia:        <http://dbpedia.org/ontology/>.
+@prefix dc:             <http://purl.org/dc/elements/1.1/>.
+@prefix dct:            <http://purl.org/dc/terms/>.
+@prefix interval:       <http://reference.data.gov.uk/def/intervals/>.
+@prefix iso37120:       <http://ontology.eil.utoronto.ca/ISO37120.owl#>.
+@prefix nuts:           <http://nuts.geovocab.org/id/>
+@prefix owl:            <http://www.w3.org/2002/07/owl#>.
+@prefix qb:             <http://purl.org/linked-data/cube#>.
+@prefix ramon:          <http://rdfdata.eionet.europa.eu/page/ramon/ontology/>.
+@prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#>.
+@prefix sdmx-concept:   <http://purl.org/linked-data/sdmx/2009/concept#>.
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#>.
+@prefix sdmx-measure:   <http://purl.org/linked-data/sdmx/2009/measure#>.
+@prefix spatial:        <http://geovocab.org/spatial#>.
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#>.
 
-ex:dataset a qb:Dataset,
-    dc:title "Muell",
-    dct:license "Open Government License Blabla".
+# TODO: commentary on this dataset structure
+# optionally encode this comment via triples?
+# - derived from qb: https://www.w3.org/TR/vocab-data-cube/
+# - data sources
+# - ...
 
+this:dataset a qb:Dataset;
+    dc:title "TODO"@en;
+    dct:subject "TODO"@en;
+    dct:description "TODO"@en;
+    dct:publisher "GI4S 2018 Group 3"@en;
+    dct:license "TODO"@en.
+
+# define our DataStructureDefinition: consists of dimensions & attributes
+
+# our attributes: recycling ratio, wastePerCapita
+this:recyclingRatio a rdf:Property, qb:MeasureProperty;
+    rdfs:label "Percentage of Waste Recycled"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    rdfs:range xsd:decimal;
+    sdmx-attribute:unitMeasure dbpedia:percentage;
+    owl:sameAs iso37120:16.3.
+
+this:wastePerCapita a rdf:Property, qb:MeasureProperty;
+    rdfs:label "Solid Waste per Capita"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    rdfs:range xsd:decimal;
+    sdmx-attribute:unitMeasure "kg".
+    owl:sameAs iso37120:"16.2".
+
+# spatial dimension: based on nuts codes as specified in the nuts namespace
+this:refArea a rdf:Property, qb:DimensionProperty;
+    rdfs:label "reference area NUTS code"@en;
+    rdfs:subPropertyOf sdmx-dimension:refArea;
+    rdfs:range ramon:NUTSRegion;
+    rdfs:range spatial:Feature;
+    qb:concept sdmx-concept:refArea.
+
+# temporal dimension: just the year.
+this:refPeriod a rdf:Property, qb:DimensionProperty;
+    rdfs:label "reference period"@en;
+    rdfs:subPropertyOf sdmx-dimension:refPeriod;
+    rdfs:range interval:Interval;
+    qb:concept sdmx-concept:refPeriod.
+
+
+# each observation combines all dimensions and one of the attributes.
 {{#each observations}}
-ex:{{observation_id}} a qb:Observation,
-    qb:dataset ex:dataset,
-    ex:refArea "{{geo_nuts}}",
-    sdmx-concept:refPeriod "{{year}}"^^xsd:gYear,
+this:{{observation_id}} a qb:Observation;
+    qb:dataset this:dataset;
+    this:refArea nuts:{{geo_nuts}};
+    sdmx-concept:refPeriod "{{year}}"^^xsd:gYear;
     {{phenomenon}} {{observation_value}}.
 
 {{/each}}
-
-
-ex:datenNuts0 ex:hasObservation ex:DE2017; ex:UK2017;...
-ex:datenNuts1 ex:hasObservation ex:nrw2017; ex:sachsen2017;...
-

@@ -53,8 +53,10 @@ if (!years.length) {
   process.exit(2)
 }
 
+// TODO!!
 const phenomenon_mapping = {
-  'GEN_HH': 'iso37120:16.3',
+  'GEN_HH': 'this:wastePerCapita',
+  'TODO': 'this:recyclingRatio',
 }
 
 // extract observations from file
@@ -73,11 +75,17 @@ for (const row of csvRows) {
       process.exit(3)
     }
 
+    const phenom = phenomenon_mapping[phenomenon]
+    if (!phenom) {
+      console.error(`unknown phenomenon for row ${row}`)
+      process.exit(4)
+    }
+
     observations.push({
       geo_nuts,
       observation_id: `obs_${phenomenon}_${geo_nuts}_${year}`,
       observation_value,
-      phenomenon: phenomenon_mapping[phenomenon] || 'unknown',
+      phenomenon: phenom,
       unit,
       year,
     })
