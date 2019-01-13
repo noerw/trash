@@ -1,11 +1,15 @@
-@prefix this: <http://course.geoinfo2018.org/G3#>.
+@prefix euwaste: <http://course.geoinfo2018.org/G3#>.
 
 @prefix dbpedia:        <http://dbpedia.org/ontology/>.
 @prefix dc:             <http://purl.org/dc/elements/1.1/>.
 @prefix dct:            <http://purl.org/dc/terms/>.
 @prefix interval:       <http://reference.data.gov.uk/def/intervals/>.
 @prefix iso37120:       <http://ontology.eil.utoronto.ca/ISO37120.owl#>.
-@prefix nuts:           <http://nuts.geovocab.org/id/>
+@prefix nuts:           <http://nuts.geovocab.org/id/>.
+{{!
+# this vocab is more accessible but doesnt link geometries!
+@prefix nuts:           <http://rdfdata.eionet.europa.eu/page/ramon/nuts/>.
+}}
 @prefix owl:            <http://www.w3.org/2002/07/owl#>.
 @prefix qb:             <http://purl.org/linked-data/cube#>.
 @prefix ramon:          <http://rdfdata.eionet.europa.eu/page/ramon/ontology/>.
@@ -24,7 +28,7 @@
 # - data sources
 # - ...
 
-this:dataset a qb:Dataset;
+euwaste:dataset a qb:Dataset;
     dc:title "TODO"@en;
     dct:subject "TODO"@en;
     dct:description "TODO"@en;
@@ -34,14 +38,14 @@ this:dataset a qb:Dataset;
 # define our DataStructureDefinition: consists of dimensions & attributes
 
 # our attributes: recycling ratio, wastePerCapita
-this:recyclingRatio a rdf:Property, qb:MeasureProperty;
+euwaste:recyclingRatio a rdf:Property, qb:MeasureProperty;
     rdfs:label "Percentage of Waste Recycled"@en;
     rdfs:subPropertyOf sdmx-measure:obsValue;
     rdfs:range xsd:decimal;
     sdmx-attribute:unitMeasure dbpedia:percentage;
     owl:sameAs iso37120:16.3.
 
-this:wastePerCapita a rdf:Property, qb:MeasureProperty;
+euwaste:wastePerCapita a rdf:Property, qb:MeasureProperty;
     rdfs:label "Solid Waste per Capita"@en;
     rdfs:subPropertyOf sdmx-measure:obsValue;
     rdfs:range xsd:decimal;
@@ -49,15 +53,14 @@ this:wastePerCapita a rdf:Property, qb:MeasureProperty;
     owl:sameAs iso37120:"16.2".
 
 # spatial dimension: based on nuts codes as specified in the nuts namespace
-this:refArea a rdf:Property, qb:DimensionProperty;
+euwaste:refArea a rdf:Property, qb:DimensionProperty;
     rdfs:label "reference area NUTS code"@en;
     rdfs:subPropertyOf sdmx-dimension:refArea;
-    rdfs:range ramon:NUTSRegion;
-    rdfs:range spatial:Feature;
+    rdfs:range ramon:NUTSRegion, spatial:Feature;
     qb:concept sdmx-concept:refArea.
 
 # temporal dimension: just the year.
-this:refPeriod a rdf:Property, qb:DimensionProperty;
+euwaste:refPeriod a rdf:Property, qb:DimensionProperty;
     rdfs:label "reference period"@en;
     rdfs:subPropertyOf sdmx-dimension:refPeriod;
     rdfs:range interval:Interval;
@@ -66,10 +69,10 @@ this:refPeriod a rdf:Property, qb:DimensionProperty;
 
 # each observation combines all dimensions and one of the attributes.
 {{#each observations}}
-this:{{observation_id}} a qb:Observation;
-    qb:dataset this:dataset;
-    this:refArea nuts:{{geo_nuts}};
-    sdmx-concept:refPeriod "{{year}}"^^xsd:gYear;
+euwaste:{{observation_id}} a qb:Observation;
+    qb:dataset euwaste:dataset;
+    euwaste:refArea nuts:{{geo_nuts}};
+    euwaste:refPeriod "{{year}}"^^xsd:gYear;
     {{phenomenon}} {{observation_value}}.
 
 {{/each}}
