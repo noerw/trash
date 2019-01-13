@@ -12,6 +12,7 @@ program
   .option('-o, --output [path]', 'Output file')
   .option('-d, --delimiter [delim]', 'CSV delimiter', ',')
   .option('-f, --format [format]', 'Output format (TODO: support SparQL insert statements', 'turtle')
+  .option('-v, --verbose', 'Increased logging verbosity', false)
   .parse(process.argv)
 
 if (!program.input) {
@@ -92,6 +93,10 @@ for (const row of csvRows) {
   }
 }
 
+if (program.verbose) {
+  console.log(`generated ${observations.length} of the following schema:`)
+  console.log(observations[0])
+}
 
 // TODO: throw error for invalid schema
 
