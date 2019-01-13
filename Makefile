@@ -1,21 +1,21 @@
-CSV=$(src_data/subset/*.csv)
+CSV=$(wildcard src_data/subset/*.csv)
+TURTLE=$(addsuffix .turtle,$(basename $(CSV)))
 
-.PHONY: debug
+.PHONY: rdf rdf.debu
 
 default: debug
 
-debug:
+rdf: $(TURTLE)
+
+%.turtle: %.csv
+	rdfgen --input $< --output rdf_data/$(notdir $*).turtle
+
+rdf.debug:
 	@echo "==========================================="
 	@echo " => generating test RDF for a single file"
 	@echo "==========================================="
 
-	@node rdf_generator/parse_csv.js -v \
-	  --input src_data/subset/eu_states_waste_generation_timeseries_subset.csv \
-	  --output rdf_data/group3_euwaste.turtle
+	@rdfgen -v \
+	  --input src_data/subset/eu_states_waste_generation_timeseries_subset.csv
 
-%.turtle: %.csv
-	# FIXME: strip path prefix from output
-	node rdf_generator/parse_csv.js \
-	  --input $< \
-	  --output rdf_data/$*.turtle
 

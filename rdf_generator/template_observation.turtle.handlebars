@@ -1,14 +1,20 @@
+# This dataset is structured following the qb vocabulary:
+# https://www.w3.org/TR/vocab-data-cube/
+#
+# generated on {{now}} with https://github.com/noerw/trash
+
 @prefix euwaste: <http://course.geoinfo2018.org/G3#>.
 
 @prefix dbpedia:        <http://dbpedia.org/ontology/>.
 @prefix dc:             <http://purl.org/dc/elements/1.1/>.
 @prefix dct:            <http://purl.org/dc/terms/>.
+@prefix dcat:           <http://www.w3.org/ns/dcat#>.
 @prefix interval:       <http://reference.data.gov.uk/def/intervals/>.
 @prefix iso37120:       <http://ontology.eil.utoronto.ca/ISO37120.owl#>.
-@prefix nuts:           <http://nuts.geovocab.org/id/>.
-{{!
-# this vocab is more accessible but doesnt link geometries!
 @prefix nuts:           <http://rdfdata.eionet.europa.eu/page/ramon/nuts/>.
+{{!
+# this vocab is less accessible but links to geometries!
+@prefix nuts:           <http://nuts.geovocab.org/id/>.
 }}
 @prefix owl:            <http://www.w3.org/2002/07/owl#>.
 @prefix qb:             <http://purl.org/linked-data/cube#>.
@@ -22,18 +28,16 @@
 @prefix spatial:        <http://geovocab.org/spatial#>.
 @prefix xsd:            <http://www.w3.org/2001/XMLSchema#>.
 
-# TODO: commentary on this dataset structure
-# optionally encode this comment via triples?
-# - derived from qb: https://www.w3.org/TR/vocab-data-cube/
-# - data sources
-# - ...
-
-euwaste:dataset a qb:Dataset;
-    dc:title "TODO"@en;
-    dct:subject "TODO"@en;
-    dct:description "TODO"@en;
-    dct:publisher "GI4S 2018 Group 3"@en;
-    dct:license "TODO"@en.
+euwaste:dataset a qb:DataSet, dcat:Dataset;
+    dc:title "Solid Waste in the EU from 2010 - 2016"@en;
+    dct:description "Bi-yearly data about solid waste generation and treatment in the EU on state & regional level"@en;
+    dct:publisher "GI4S 2018 Group 3, ifgi"@en;
+    dct:license "https://ec.europa.eu/eurostat/about/policies/copyright"@en;
+    dct:source "https://ec.europa.eu/eurostat/web/waste/data/database";
+    dcat:distribution "https://ec.europa.eu/eurostat/web/waste/data/database";
+    dct:subject iso37120:SolidWaste;
+    rdfs:seeAlso https://github.com/noerw/trash;
+    awol:generator https://github.com/noerw/trash;
 
 # define our DataStructureDefinition: consists of dimensions & attributes
 
@@ -50,7 +54,7 @@ euwaste:wastePerCapita a rdf:Property, qb:MeasureProperty;
     rdfs:subPropertyOf sdmx-measure:obsValue;
     rdfs:range xsd:decimal;
     sdmx-attribute:unitMeasure "kg".
-    owl:sameAs iso37120:"16.2".
+    owl:sameAs iso37120:16.2.
 
 # spatial dimension: based on nuts codes as specified in the nuts namespace
 euwaste:refArea a rdf:Property, qb:DimensionProperty;
@@ -67,12 +71,16 @@ euwaste:refPeriod a rdf:Property, qb:DimensionProperty;
     qb:concept sdmx-concept:refPeriod.
 
 
-# each observation combines all dimensions and one of the attributes.
-{{#each observations}}
-euwaste:{{observation_id}} a qb:Observation;
-    qb:dataset euwaste:dataset;
-    euwaste:refArea nuts:{{geo_nuts}};
+# each block describes all observations for each year & spatial reference
+{{#each observations as |yearValues year|}}
+{{#each yearValues as |obs nuts|}}
+euwaste:{{id}} a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:{{nuts}};
     euwaste:refPeriod "{{year}}"^^xsd:gYear;
-    {{phenomenon}} {{observation_value}}.
+{{#each obs}}
+    {{phenomenon}} {{value}}.
+{{/each}}
 
+{{/each}}
 {{/each}}
