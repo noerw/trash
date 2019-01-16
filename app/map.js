@@ -18,6 +18,25 @@ layerGroup.addTo(mymap);
  * nuts3 = Kreise
  */
 
+
+
+
+function onclick(e) {
+    console.log(e);
+  }
+  
+  function onEachFeature(feature, layer) {
+      layer.on({
+          click: onclick
+      });
+  }
+  
+  geojson = L.geoJson(nutsLevel2, {
+      onEachFeature: onEachFeature
+  }).addTo(layerGroup);
+
+
+
 const nuts0 = ["BE", "GR", "BG", "CZ", "DK", "DE", "EE", "IE", "ES", "FR", "HR", "IT", "CY", "LV", "LT", "LU", "HU", "MT", "NL", "AT", "PL", "PT", "RO", "SI", "SK", "FI", "SE", "UK"];
 const nuts1 = ["DE1", "DE2", "DE3", "DE4", "DE5", "DE6", "DE7", "DE8", "DE9", "DEA", "DEB", "DEC", "DED", "DEE", "DEF", "DEG"];
 const nuts2 = [];
