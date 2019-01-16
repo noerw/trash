@@ -14,7 +14,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "ts-node parse_csv.ts",
+    "start": "node index.js",
     "preinstall": "npm run build",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
