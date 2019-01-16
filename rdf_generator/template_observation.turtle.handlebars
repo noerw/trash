@@ -39,22 +39,26 @@ euwaste:dataset a qb:DataSet, dcat:Dataset;
     rdfs:seeAlso https://github.com/noerw/trash;
     awol:generator https://github.com/noerw/trash;
 
-# define our DataStructureDefinition: consists of dimensions & attributes
-
-# our attributes: recycling ratio, wastePerCapita
-euwaste:recyclingRatio a rdf:Property, qb:MeasureProperty;
-    rdfs:label "Percentage of Waste Recycled"@en;
+# our attributes: waste generation per capita, recycling amount, energy recovery per capita
+euwaste:attrWastePerCapita a rdf:Property, qb:MeasureProperty;
+    rdfs:label "Solid Waste per Capita (kg)"@en;
     rdfs:subPropertyOf sdmx-measure:obsValue;
-    rdfs:range xsd:decimal;
-    sdmx-attribute:unitMeasure dbpedia:percentage;
-    owl:sameAs iso37120:16.3.
+    rdfs:range xsd:decimal, xsd:integer;
+    sdmx-attribute:unitMeasure "kg";
+    rdfs:seeAlso iso37120:16.2.
 
-euwaste:wastePerCapita a rdf:Property, qb:MeasureProperty;
-    rdfs:label "Solid Waste per Capita"@en;
+euwaste:attrRecycling a rdf:Property, qb:MeasureProperty;
+    rdfs:label "Waste Recycled (in kT)"@en;
     rdfs:subPropertyOf sdmx-measure:obsValue;
-    rdfs:range xsd:decimal;
+    rdfs:range xsd:decimal, xsd:integer;
+    sdmx-attribute:unitMeasure "kT";
+    rdfs:seeAlso iso37120:16.3.
+
+euwaste:attrEnergyRecovery a rdf:Property, qb:MeasureProperty;
+    rdfs:label "Waste Treated for Energy Recovery per Capita (kg)"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    rdfs:range xsd:decimal, xsd:integer;
     sdmx-attribute:unitMeasure "kg".
-    owl:sameAs iso37120:16.2.
 
 # spatial dimension: based on nuts codes as specified in the nuts namespace
 euwaste:refArea a rdf:Property, qb:DimensionProperty;
@@ -70,11 +74,10 @@ euwaste:refPeriod a rdf:Property, qb:DimensionProperty;
     rdfs:range interval:Interval;
     qb:concept sdmx-concept:refPeriod.
 
-
 # each block describes all observations for each year & spatial reference
 {{#each observations as |yearValues year|}}
 {{#each yearValues as |obs nuts|}}
-euwaste:{{id}} a qb:Observation;
+euwaste:obs_{{year}}_{{nuts}} a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:{{nuts}};
     euwaste:refPeriod "{{year}}"^^xsd:gYear;

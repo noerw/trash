@@ -38,4 +38,13 @@ The relevant data subsetwas extracted from the source data by..
   - VG250 https://www.geodatenzentrum.de/geodaten/gdz_rahmen.gdz_div?gdz_spr=deu&gdz_akt_zeile=5&gdz_anz_zeile=1&gdz_unt_zeile=13&gdz_user_id=0
 
 
+## meaning of waste / treatment types
+| shorthand | meaning                                |
+|-----------|----------------------------------------|
+| `GEN_HH`  | waste generation from households |
+| `RCV_E`   | Energy recovery |
+| `RCV_R`   | Recovery other than energy recovery - except backfilling |
+| `RCY_M`   | Recycling - werkstofflich |
+
+sources: [1](https://ec.europa.eu/eurostat/de/web/waste/management-of-waste-excluding-major-mineral-wastes), [2](https://www.eea.europa.eu/data-and-maps/daviz/sds/recycling-of-municipal-waste/@@view), [3](https://ec.europa.eu/eurostat/ramon/nomenclatures/index.cfm?TargetUrl=LST_NOM_DTL&StrNom=CL_WST_OPE&StrLanguageCode=DE&IntPcKey=&StrLayoutCode=HIERARCHIC)
 
