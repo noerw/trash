@@ -11,10 +11,15 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 var layerGroup = L.featureGroup();
 layerGroup.addTo(mymap);
 
+
 loadNUTS();
 
 
 function onclick(e) {
+    
+    index.postQuery();
+
+
     console.log(e);
 }
   
