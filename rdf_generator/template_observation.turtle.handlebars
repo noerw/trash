@@ -36,8 +36,7 @@ euwaste:dataset a qb:DataSet, dcat:Dataset;
     dct:source "https://ec.europa.eu/eurostat/web/waste/data/database";
     dcat:distribution "https://ec.europa.eu/eurostat/web/waste/data/database";
     dct:subject iso37120:SolidWaste;
-    rdfs:seeAlso https://github.com/noerw/trash;
-    awol:generator https://github.com/noerw/trash;
+    rdfs:seeAlso <https://github.com/noerw/trash>.
 
 # our attributes: waste generation per capita, recycling amount, energy recovery per capita
 euwaste:attrWastePerCapita a rdf:Property, qb:MeasureProperty;
@@ -77,13 +76,15 @@ euwaste:refPeriod a rdf:Property, qb:DimensionProperty;
 # each block describes all observations for each year & spatial reference
 {{#each observations as |yearValues year|}}
 {{#each yearValues as |obs nuts|}}
+{{#if obs.length}}
 euwaste:obs_{{year}}_{{nuts}} a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:{{nuts}};
     euwaste:refPeriod "{{year}}"^^xsd:gYear;
 {{#each obs}}
-    {{phenomenon}} {{value}}.
+    {{phenomenon}} "{{value}}"^^xsd:decimal{{#if @last }}.{{else}};{{/if}}
 {{/each}}
 
+{{/if}}
 {{/each}}
 {{/each}}
