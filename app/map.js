@@ -11,69 +11,31 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 var layerGroup = L.featureGroup();
 layerGroup.addTo(mymap);
 
-/**
- * nuts0 = Länder
- * nuts1 = bundesländer
- * nuts2 = Regierungsbezirke
- * nuts3 = Kreise
- */
-
-
+loadNUTS();
 
 
 function onclick(e) {
     console.log(e);
-  }
+}
   
-  function onEachFeature(feature, layer) {
-      layer.on({
-          click: onclick
-      });
-  }
-  
-  geojson = L.geoJson(nutsLevel2, {
-      onEachFeature: onEachFeature
-  }).addTo(layerGroup);
-
-
-
-const nuts0 = ["BE", "GR", "BG", "CZ", "DK", "DE", "EE", "IE", "ES", "FR", "HR", "IT", "CY", "LV", "LT", "LU", "HU", "MT", "NL", "AT", "PL", "PT", "RO", "SI", "SK", "FI", "SE", "UK"];
-const nuts1 = ["DE1", "DE2", "DE3", "DE4", "DE5", "DE6", "DE7", "DE8", "DE9", "DEA", "DEB", "DEC", "DED", "DEE", "DEF", "DEG"];
-const nuts2 = [];
-const nuts3 = [];
-
-//Die normale URL ist http://nuts.geovocab.org/id/" + nutID + "_geometry.kml  aber dann kommt es immer zu einem fehler wegen crossorigin.
-//Deshalb einfach über die cors.io seite als proxy laufen lassen. 
-//Wenn bessere idee dann bitte ändern!!!!
-
-function visualizeNuts0() {
-    layerGroup.clearLayers();    
-    nuts0.forEach(nutID => {
-        url = "https://cors.io/?http://nuts.geovocab.org/id/" + nutID + "_geometry.kml";
-        var nutLayer = omnivore.kml(url)
-            .on('ready', function () {
-                console.log("ID: " + nutID + " loaded...");
-                nutLayer.eachLayer(function (layer) {
-                    layer.bindPopup(layer.feature.properties.name);
-                })
-            })
-            .addTo(layerGroup);
+function onEachFeature(feature, layer) {
+    layer.on({
+        click: onclick
     });
 }
 
-function visualizeNuts1() {
-    layerGroup.clearLayers();    
-    nuts1.forEach(nutID => {
-        url = "https://cors.io/?http://nuts.geovocab.org/id/" + nutID + "_geometry.kml";
-        var nutLayer = omnivore.kml(url)
-            .on('ready', function () {
-                console.log("ID: " + nutID + " loaded...");
-                nutLayer.eachLayer(function (layer) {
-                    layer.bindPopup(layer.feature.properties.name);
-                })
-            })
-            .addTo(layerGroup);
-    });
+function loadNUTS(){
+    if(mymap.getZoom() > 6){
+        layerGroup.clearLayers();
+        geojson = L.geoJson(nutsLevel2, {
+            onEachFeature: onEachFeature
+        }).addTo(layerGroup);
+    }else{
+        layerGroup.clearLayers();
+        geojson = L.geoJson(nutsLevel0, {
+            onEachFeature: onEachFeature
+        }).addTo(layerGroup);
+    }
 }
 
 
@@ -84,4 +46,5 @@ mymap.on('zoomend', function (e) {
 
 function zoom_based_layerchange() {
     console.log(mymap.getZoom());
+    loadNUTS();
 }
