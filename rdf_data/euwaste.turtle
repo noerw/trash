@@ -40,14 +40,14 @@ euwaste:attrWastePerCapita a rdf:Property, qb:MeasureProperty;
     rdfs:subPropertyOf sdmx-measure:obsValue;
     rdfs:range xsd:decimal, xsd:integer;
     sdmx-attribute:unitMeasure "kg";
-    rdfs:seeAlso iso37120:16.2.
+    rdfs:seeAlso iso37120:16_2.
 
 euwaste:attrRecycling a rdf:Property, qb:MeasureProperty;
     rdfs:label "Waste Recycled (in kT)"@en;
     rdfs:subPropertyOf sdmx-measure:obsValue;
     rdfs:range xsd:decimal, xsd:integer;
     sdmx-attribute:unitMeasure "kT";
-    rdfs:seeAlso iso37120:16.3.
+    rdfs:seeAlso iso37120:16_3.
 
 euwaste:attrEnergyRecovery a rdf:Property, qb:MeasureProperty;
     rdfs:label "Waste Treated for Energy Recovery per Capita (kg)"@en;
