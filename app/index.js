@@ -3,7 +3,7 @@ var app = express();
 app.use('/', express.static(__dirname + '/'));
 
 
-var address = "euwaste: <http://course.geoinfo2018.org/G3#>";
+var address = "http://course.geoinfo2018.org/G3#";
 
 
 
@@ -16,20 +16,26 @@ var SparqlParser = require('sparqljs').Parser;
 var parser = new SparqlParser();
 
 var parsedQuery = parser.parse(
-  'PREFIX euwaste: <http://course.geoinfo2018.org/G3#>' +
-  'SELECT ?p ?o  {  <http://course.geoinfo2018.org/G3#> ?p ?o }'
+  'SELECT DISTINCT * WHERE {?s ?p ?o}'
   );
 
 function postQuery(){
-  $.post(this.address, {
-        query: this.parsedQuery,
+  $.post(address, {
+        query: parsedQuery,
         output: 'json'
       })
+  alert("hi")
 }
+
+
  
 
 app.get('/', function (req, res) {
     res.render('index.html');
+});
+
+app.post('/', function(req, res) {
+    console.log(res)
 });
 
 app.listen(3000, function () {
