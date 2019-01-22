@@ -27,8 +27,8 @@ function init(){
 }
 
 function onclick(e) {
-
-    console.log(e);
+    var nut = e.sourceTarget.feature.id;
+    console.log(nut);
 }
   
 function onEachFeature(feature, layer) {
@@ -41,12 +41,18 @@ function loadNUTS(){
     if(mymap.getZoom() > 6){
         layerGroup.clearLayers();
         geojson = L.geoJson(nutsLevel2, {
-            onEachFeature: onEachFeature
+            onEachFeature: onEachFeature,
+            style : function(feature){
+
+            }
         }).addTo(layerGroup);
     }else{
         layerGroup.clearLayers();
         geojson = L.geoJson(nutsLevel0, {
-            onEachFeature: onEachFeature
+            onEachFeature: onEachFeature,
+            style : function(feature){
+
+            }
         }).addTo(layerGroup);
     }
 }
