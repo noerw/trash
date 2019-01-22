@@ -13,7 +13,7 @@ layerGroup.addTo(mymap);
 
 var address = "http://giv-oct.uni-muenster.de:8890/sparql?default-graph-uri=http%3A%2F%2Fcourse.geoinfo2018.org%2FG3&format=application/json&timeout=0&debug=on&query=";
 var namespace = "http://course.geoinfo2018.org/G3#";
-var queryHeader =  'PREFIX euwaste: <http://course.geoinfo2018.org/G3#> PREFIX qb: <http://purl.org/linked-data/cube#> PREFIX nuts: <http://rdfdata.eionet.europa.eu/page/ramon/nuts/> ';
+var queryHeader = 'PREFIX euwaste: <http://course.geoinfo2018.org/G3#> PREFIX qb: <http://purl.org/linked-data/cube#> PREFIX nuts: <http://rdfdata.eionet.europa.eu/page/ramon/nuts/> ';
 
 
 
@@ -25,7 +25,7 @@ loadNUTS();
 init();
 
 
-function getAllNuts(){
+function getAllNuts() {
     nutsLevel0.features.forEach(element => {
         nut0Codes.push(element.id)
     });
@@ -35,55 +35,70 @@ function getAllNuts(){
     });
 }
 
-function builQuery(){
-    var queryContent = "?obs a qb:Observation.   ?obs euwaste:refArea nuts:DE.  ?obs euwaste:attrWastePerCapita ?wasteGeneration."
-    var completeQuery = queryHeader + "SELECT DISTINCT * WHERE {"+queryContent+"}"
+function queryMaxWaste(nut0) {
+    var queryContent = "?obs a qb:Observation.   ?obs euwaste:refArea nuts:" + nut0 + ".  ?obs euwaste:attrWastePerCapita ?wasteGeneration.   ?obs euwaste:refPeriod ?year."
+    var completeQuery = queryHeader + "SELECT DISTINCT * WHERE {" + queryContent + "}ORDER BY DESC(?year)"
     return completeQuery
 }
 
+var maxWaste0 = 0
 
-function init(){
+async function init() {
     getAllNuts()
-    let query = builQuery()
-    console.log(query)
-    fetch(address + encodeURIComponent(query))
-        .then(response => {
-            console.log(response)
-            return response.json()
-        })
-        .then(response => {
-            console.log(response)
-        });           
+    await maxWaste(nut0Codes).then(response => {
+        console.log(response)
+    })
+    //var maxWaste2 =  maxWaste(nut2Codes)
+}
+
+function maxWaste(nutCodes) {
+    return new Promise(resolve => {
+        let waste = []
+        nutCodes.forEach((element, index, array) => {
+            let query = queryMaxWaste(element)
+            fetch(address + encodeURIComponent(query))
+                .then(response => {
+                    return response.json()
+                })
+                .then(response => {
+                    waste.push(response.results.bindings[0].wasteGeneration.value)
+                    console.log(waste)
+                })
+        });
+        let maxWaste = Math.max(waste)
+        resolve(maxWaste)
+    })
 }
 
 function onclick(e) {
     var nut = e.sourceTarget.feature.id;
     console.log(nut);
     getAllNuts();
+    console.log(maxWaste0)
 
 }
-  
+
 function onEachFeature(feature, layer) {
     layer.on({
         click: onclick
     });
 }
 
-function loadNUTS(){
-    
-    if(mymap.getZoom() > 6){
+function loadNUTS() {
+
+    if (mymap.getZoom() > 6) {
         layerGroup.clearLayers();
         geojson = L.geoJson(nutsLevel2, {
             onEachFeature: onEachFeature,
-            style : function(feature){
+            style: function (feature) {
 
             }
         }).addTo(layerGroup);
-    }else{
+    } else {
         layerGroup.clearLayers();
         geojson = L.geoJson(nutsLevel0, {
             onEachFeature: onEachFeature,
-            style : function(feature){
+            style: function (feature) {
 
             }
         }).addTo(layerGroup);
