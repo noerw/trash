@@ -13,7 +13,7 @@ layerGroup.addTo(mymap);
 
 var address = "http://giv-oct.uni-muenster.de:8890/sparql?default-graph-uri=http%3A%2F%2Fcourse.geoinfo2018.org%2FG3&format=application/json&timeout=0&debug=on&query=";
 var namespace = "http://course.geoinfo2018.org/G3#";
-var query =  'PREFIX euwaste: <http://course.geoinfo2018.org/G3#> PREFIX qb: <http://purl.org/linked-data/cube#> PREFIX nuts: <http://rdfdata.eionet.europa.eu/page/ramon/nuts/> SELECT DISTINCT * WHERE {  ?obs a qb:Observation.   ?obs euwaste:refArea nuts:DE.  ?obs euwaste:attrWastePerCapita ?wasteGeneration.}'
+var queryHeader =  'PREFIX euwaste: <http://course.geoinfo2018.org/G3#> PREFIX qb: <http://purl.org/linked-data/cube#> PREFIX nuts: <http://rdfdata.eionet.europa.eu/page/ramon/nuts/> ';
 
 
 
@@ -35,14 +35,17 @@ function getAllNuts(){
     });
 }
 
-function buildQUERY(s, p, o){
-    return "{"+ s +" " + p + " " + o +"}"
+function builQuery(){
+    var queryContent = "?obs a qb:Observation.   ?obs euwaste:refArea nuts:DE.  ?obs euwaste:attrWastePerCapita ?wasteGeneration."
+    var completeQuery = queryHeader + "SELECT DISTINCT * WHERE {"+queryContent+"}"
+    return completeQuery
 }
 
 
 function init(){
     getAllNuts()
-    let result = ""
+    let query = builQuery()
+    console.log(query)
     fetch(address + encodeURIComponent(query))
         .then(response => {
             console.log(response)
