@@ -42,38 +42,35 @@ function queryMaxWaste(nut0) {
     var completeQuery = queryHeader + "SELECT DISTINCT * WHERE {" + queryContent + "}ORDER BY DESC(?year)"
     return completeQuery
 }
-
+var maxWaste0 = 0;
 async function init() {
     getAllNuts();
-    let maxWaste0 = await maxWaste(nut0Codes);
+    maxWaste0 = await maxWaste(nut0Codes);
     console.log(maxWaste0)
-  }
-  
-  //Asyc fetch latest value for waste for every nut code in set of codes. 
-  //Push all values into an array and return max value of all.
-  async function maxWaste(nutCode) {
+}
+
+//Asyc fetch latest value for waste for every nut code in set of codes. 
+//Push all values into an array and return max value of all.
+async function maxWaste(nutCode) {
     const waste = [];
-    for (const element in nutCode) {
-      const query = queryMaxWaste(element);
-      const response = await fetch(address + encodeURIComponent(query));
-      await response.json().then(response => {
-          console.log(response)
-        if(response.results.bindings.length > 1){
+    for (const element of nutCode) {
+        const query = queryMaxWaste(element);
+        const response = await fetch(address + encodeURIComponent(query));
+        const json = await response.json();
+        if (json.results.bindings.length > 1) {
             const value = json.results.bindings[0].wasteGeneration.value
             waste.push(value);
         }
-      })
     }
     console.log(waste)
-    const maxWaste = Math.max(waste);
+    const maxWaste = Math.max.apply(Math, waste);;
     return maxWaste;
-  }
-
+}
 
 function onclick(e) {
     var nut = e.sourceTarget.feature.id;
     console.log(nut);
-    getAllNuts();
+    console.log(maxWaste0)
 }
 
 function onEachFeature(feature, layer) {
