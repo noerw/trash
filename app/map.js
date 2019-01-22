@@ -11,16 +11,21 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 var layerGroup = L.featureGroup();
 layerGroup.addTo(mymap);
 
-
 loadNUTS();
 
 
+var address = "http://giv-oct.uni-muenster.de:8890/sparql?default-graph-uri=http%3A%2F%2Fcourse.geoinfo2018.org%2FG3&format=application/json&timeout=0&debug=on&query=";
+var namespace = "http://course.geoinfo2018.org/G3#";
+var query =  'SELECT DISTINCT * WHERE {?s ?p ?o}LIMIT 10'
+
+
 function onclick(e) {
-    
-    index.postQuery();
+    //get req mit nut id an server address
 
+    fetch(address + encodeURIComponent(query))
+    .then(response => response.json()).then(response => console.log(response));
 
-    console.log(e);
+    //console.log(e);
 }
   
 function onEachFeature(feature, layer) {

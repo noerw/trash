@@ -3,39 +3,15 @@ var app = express();
 app.use('/', express.static(__dirname + '/'));
 
 
-var address = "http://course.geoinfo2018.org/G3#";
-
-
-
-
-
-// Parse a SPARQL query to a JSON object
-var SparqlParser = require('sparqljs').Parser;
-
-
-var parser = new SparqlParser();
-
-var parsedQuery = parser.parse(
-  'SELECT DISTINCT * WHERE {?s ?p ?o}'
-  );
-
-function postQuery(){
-  $.post(address, {
-        query: parsedQuery,
-        output: 'json'
-      })
-  alert("hi")
-}
-
-
- 
+var address = "http://giv-oct.uni-muenster.de:8890/sparql?default-graph-uri=http%3A%2F%2Fcourse.geoinfo2018.org%2FG3&query=";
+var namespace = "http://course.geoinfo2018.org/G3#";
+var query =  'SELECT DISTINCT * WHERE {?s ?p ?o}LIMIT 10'
 
 app.get('/', function (req, res) {
     res.render('index.html');
 });
 
 app.post('/', function(req, res) {
-    console.log(res)
 });
 
 app.listen(3000, function () {
