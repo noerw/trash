@@ -21,7 +21,6 @@ var nut0Codes = [];
 var nut2Codes = [];
 
 
-loadNUTS();
 init();
 
 //extracting nut codes 
@@ -45,10 +44,24 @@ function queryMaxWaste(nut0) {
 
 
 var maxWaste0;
+var wasteArray0;
+var maxWaste2;
+var wasteArray2;
+
+
 async function init() {
     getAllNuts();
-    maxWaste0 = await maxWaste(nut0Codes);
-    console.log(maxWaste0)
+    const waste0 = await maxWaste(nut0Codes);
+    maxWaste0 = waste0.maxWaste;
+    wasteArray0 = waste0.wasteArray;
+    console.log(waste0)
+    //same for nut2
+    // const wast2 = await maxWaste(nut2Codes)
+    // maxWaste2 = waste2.maxWaste;
+    // wasteArray2 = waste2.wasteArray;
+    // console.log(maxWaste2)
+
+    loadNUTS();
 }
 
 //Asyc fetch latest value for waste for every nut code in set of codes. 
@@ -62,47 +75,68 @@ async function maxWaste(nutCode) {
         if (json.results.bindings.length > 1) {
             const id = json.results.bindings[0].obs.value.substring(json.results.bindings[0].obs.value.length - 2);
             const value = json.results.bindings[0].wasteGeneration.value
-            waste.push({nut : id, waste : value});
+            waste.push({ nut: id, waste: value });
         }
     }
     console.log(waste)
-    const maxWaste = Math.max.apply(Math, waste.map(function(element) { return element.waste }))
-    return maxWaste;
+    const maxWaste = Math.max.apply(Math, waste.map(function (element) { return element.waste }))
+    return { maxWaste: maxWaste, wasteArray: waste };
 }
 
-function onclick(e) {
-    var nut = e.sourceTarget.feature.id;
-    console.log(nut);
-    console.log(maxWaste0)
-}
-
-function onEachFeature(feature, layer) {
-    layer.on({
-        click: onclick
-    });
-}
 
 function loadNUTS() {
-
     if (mymap.getZoom() > 6) {
         layerGroup.clearLayers();
         geojson = L.geoJson(nutsLevel2, {
             onEachFeature: onEachFeature,
             style: function (feature) {
-
+                console.log(feature)
             }
         }).addTo(layerGroup);
     } else {
         layerGroup.clearLayers();
         geojson = L.geoJson(nutsLevel0, {
             onEachFeature: onEachFeature,
-            style: function (feature) {
-
-            }
+            style: style
         }).addTo(layerGroup);
     }
 }
 
+//#################################
+//#### Map Stuff and coloring #####
+//#################################
+
+function onclick(e) {
+    var nut = e.sourceTarget.feature.id;
+    console.log(nut)
+}
+
+function onEachFeature(feature, layer) {
+    layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: onclick
+    });
+}
+
+function resetHighlight(e) {
+    geojson.resetStyle(e.target);
+}
+
+function highlightFeature(e) {
+    var layer = e.target;
+
+    layer.setStyle({
+        weight: 5,
+        color: '#666',
+        dashArray: '',
+        fillOpacity: 0.7
+    });
+
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        layer.bringToFront();
+    }
+}
 mymap.on('zoomend', function (e) {
     zoom_based_layerchange();
 });
@@ -110,4 +144,37 @@ mymap.on('zoomend', function (e) {
 function zoom_based_layerchange() {
     console.log(mymap.getZoom());
     loadNUTS();
+}
+
+function style(feature) {
+    const region = wasteArray0.find(elem => {
+        if (elem.nut == feature.id) return elem;
+    })
+    if (region) {
+        const normalizedWaste = region.waste / maxWaste0;
+
+        return {
+            fillColor: getColor(normalizedWaste),
+            weight: 2,
+            opacity: 1,
+            color: 'white',
+            dashArray: '3',
+            fillOpacity: 0.7
+        };
+    }
+}
+
+function getColor(d) {
+    return  d >= 1 ? '#E500AD' :
+            d > .9 ? '#CE13A0' :
+            d > .8 ? '#B72693' :
+            d > .7 ? '#A03986' :
+            d > .6 ? '#894C7A' :
+            d > .5 ? '#725F6D' :
+            d > .4 ? '#5B7260' :
+            d > .3 ? '#448554' :
+            d > .2 ? '#2D9847' :
+            d > .1 ? '#16AB3A' :
+            d == undefined ? '#000000':
+                     '#00BF2E' 
 }
