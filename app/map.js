@@ -24,7 +24,7 @@ var nut2Codes = [];
 loadNUTS();
 init();
 
-
+//extracting nut codes 
 function getAllNuts() {
     nutsLevel0.features.forEach(element => {
         nut0Codes.push(element.id)
@@ -35,47 +35,45 @@ function getAllNuts() {
     });
 }
 
+//Build query to get max amount of waste for a given array of nut codes
+//Order desc to make the latest data always available at index 0
 function queryMaxWaste(nut0) {
     var queryContent = "?obs a qb:Observation.   ?obs euwaste:refArea nuts:" + nut0 + ".  ?obs euwaste:attrWastePerCapita ?wasteGeneration.   ?obs euwaste:refPeriod ?year."
     var completeQuery = queryHeader + "SELECT DISTINCT * WHERE {" + queryContent + "}ORDER BY DESC(?year)"
     return completeQuery
 }
 
-var maxWaste0 = 0
-
 async function init() {
-    getAllNuts()
-    await maxWaste(nut0Codes).then(response => {
-        console.log(response)
-    })
-    //var maxWaste2 =  maxWaste(nut2Codes)
-}
+    getAllNuts();
+    let maxWaste0 = await maxWaste(nut0Codes);
+    console.log(maxWaste0)
+  }
+  
+  //Asyc fetch latest value for waste for every nut code in set of codes. 
+  //Push all values into an array and return max value of all.
+  async function maxWaste(nutCode) {
+    const waste = [];
+    for (const element in nutCode) {
+      const query = queryMaxWaste(element);
+      const response = await fetch(address + encodeURIComponent(query));
+      await response.json().then(response => {
+          console.log(response)
+        if(response.results.bindings.length > 1){
+            const value = json.results.bindings[0].wasteGeneration.value
+            waste.push(value);
+        }
+      })
+    }
+    console.log(waste)
+    const maxWaste = Math.max(waste);
+    return maxWaste;
+  }
 
-function maxWaste(nutCodes) {
-    return new Promise(resolve => {
-        let waste = []
-        nutCodes.forEach((element, index, array) => {
-            let query = queryMaxWaste(element)
-            fetch(address + encodeURIComponent(query))
-                .then(response => {
-                    return response.json()
-                })
-                .then(response => {
-                    waste.push(response.results.bindings[0].wasteGeneration.value)
-                    console.log(waste)
-                })
-        });
-        let maxWaste = Math.max(waste)
-        resolve(maxWaste)
-    })
-}
 
 function onclick(e) {
     var nut = e.sourceTarget.feature.id;
     console.log(nut);
     getAllNuts();
-    console.log(maxWaste0)
-
 }
 
 function onEachFeature(feature, layer) {
