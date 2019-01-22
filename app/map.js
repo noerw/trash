@@ -42,7 +42,9 @@ function queryMaxWaste(nut0) {
     var completeQuery = queryHeader + "SELECT DISTINCT * WHERE {" + queryContent + "}ORDER BY DESC(?year)"
     return completeQuery
 }
-var maxWaste0 = 0;
+
+
+var maxWaste0;
 async function init() {
     getAllNuts();
     maxWaste0 = await maxWaste(nut0Codes);
@@ -58,12 +60,13 @@ async function maxWaste(nutCode) {
         const response = await fetch(address + encodeURIComponent(query));
         const json = await response.json();
         if (json.results.bindings.length > 1) {
+            const id = json.results.bindings[0].obs.value.substring(json.results.bindings[0].obs.value.length - 2);
             const value = json.results.bindings[0].wasteGeneration.value
-            waste.push(value);
+            waste.push({nut : id, waste : value});
         }
     }
     console.log(waste)
-    const maxWaste = Math.max.apply(Math, waste);;
+    const maxWaste = Math.max.apply(Math, waste.map(function(element) { return element.waste }))
     return maxWaste;
 }
 
