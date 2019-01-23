@@ -42,6 +42,12 @@ function queryMaxWaste(nut0) {
     return completeQuery
 }
 
+function queryYearly(selCode){
+    var queryContent = "?obs a qb:Observation. ?obs euwaste:refArea nuts:" + selCode + ". ?obs euwaste:attrWastePerCapita ?wasteGeneration. ?obs euwaste:refPeriod ?year."
+    var completeQuery = queryHeader + "SELECT DISTINCT * WHERE {" + queryContent + "}ORDER BY DESC(?year)"
+    return completeQuery
+}
+
 
 var maxWaste0;
 var wasteArray0;
@@ -102,16 +108,36 @@ function loadNUTS() {
     }
 }
 
+
+
+
+
 //#################################
 //#### Map Stuff and coloring #####
 //#################################
 
-function onclick(e) {
+async function onclick(e) {
     var nut = e.sourceTarget.feature.id;
     document.getElementById('dataTitle').innerHTML = nut;
     openNav();
-    console.log(nut)
+
+    const query = queryYearly(nut);
+    const response = await fetch(address + encodeURIComponent(query));
+    const json = await response.json();
+
+    setChart(json.results.bindings);
+
 }
+
+
+
+
+
+
+
+
+
+
 
 function onEachFeature(feature, layer) {
     layer.on({
