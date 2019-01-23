@@ -108,6 +108,8 @@ function loadNUTS() {
 
 function onclick(e) {
     var nut = e.sourceTarget.feature.id;
+    document.getElementById('dataTitle').innerHTML = nut;
+    openNav();
     console.log(nut)
 }
 
@@ -177,4 +179,17 @@ function getColor(d) {
             d > .1 ? '#16AB3A' :
             d == undefined ? '#000000':
                      '#00BF2E' 
+}
+
+
+function openNav() {
+  document.getElementById("main").style.marginRight = "25%";
+  document.getElementById("mySidenav").style.width = "25%";
+  document.getElementById("mySidenav").style.display = "block";
+    
+}
+  
+function closeNav() {
+document.getElementById("main").style.marginRight = "0%";
+document.getElementById("mySidenav").style.display = "none";
 }
