@@ -12,27 +12,12 @@ var layerGroup = L.featureGroup();
 layerGroup.addTo(mymap);
 
 var address = "http://giv-oct.uni-muenster.de:8890/sparql?default-graph-uri=http%3A%2F%2Fcourse.geoinfo2018.org%2FG3&format=application/json&timeout=0&debug=on&query=";
-var namespace = "http://course.geoinfo2018.org/G3#";
 var queryHeader = 'PREFIX euwaste: <http://course.geoinfo2018.org/G3#> PREFIX qb: <http://purl.org/linked-data/cube#> PREFIX nuts: <http://rdfdata.eionet.europa.eu/page/ramon/nuts/> ';
 
 
 
-var nut0Codes = [];
-var nut2Codes = [];
-
 
 init();
-
-//extracting nut codes 
-function getAllNuts() {
-    nutsLevel0.features.forEach(element => {
-        nut0Codes.push(element.id)
-    });
-
-    nutsLevel2.features.forEach(element => {
-        nut2Codes.push(element.id)
-    });
-}
 
 //Build query to get max amount of waste for a given array of nut codes
 //Order desc to make the latest data always available at index 0
@@ -48,6 +33,37 @@ function queryYearly(selCode){
     return completeQuery
 }
 
+async function queryLatestForNuts (nutsCode) {
+    const query = `
+      SELECT DISTINCT * WHERE {
+        ?obs a qb:Observation.
+        ?obs euwaste:refArea nuts:${nutsCode}.
+        ?obs euwaste:attrWastePerCapita ?wasteGeneration.
+        ?obs euwaste:attrRecycling ?recycling.
+        ?obs euwaste:attrEnergyRecovery ?energyRecovery.
+        ?obs euwaste:refPeriod ?year.
+      } ORDER BY DESC(?year)
+    `;
+
+    return queryTripleStore(query);
+}
+
+async function queryTripleStore (query) {
+    const baseUrl = 'http://giv-oct.uni-muenster.de:8890/sparql?default-graph-uri=http%3A%2F%2Fcourse.geoinfo2018.org%2FG3&format=application/json&timeout=0&debug=on&query='
+    const q = `
+        PREFIX euwaste: <http://course.geoinfo2018.org/G3#>
+        PREFIX qb: <http://purl.org/linked-data/cube#>
+        PREFIX nuts: <http://rdfdata.eionet.europa.eu/page/ramon/nuts/>
+
+        ${query}
+    `;
+
+    // TODO: do query
+    const response = await fetch(baseUrl + encodeURIComponent(q));
+    const json = await response.json();
+    return json;
+}
+
 
 var maxWaste0;
 var wasteArray0;
@@ -56,11 +72,15 @@ var wasteArray2;
 
 
 async function init() {
-    getAllNuts();
-    const waste0 = await maxWaste(nut0Codes);
+    // extract NUTS ids form geojson
+    const nut0Codes = nutsLevel0.features.map(feat => feat.id);
+    const nut2Codes = nutsLevel2.features.map(feat => feat.id);
+
+    const waste0 = await fetchWasteData(nut0Codes);
     maxWaste0 = waste0.maxWaste;
     wasteArray0 = waste0.wasteArray;
     console.log(waste0)
+
     //same for nut2
     // const wast2 = await maxWaste(nut2Codes)
     // maxWaste2 = waste2.maxWaste;
@@ -70,9 +90,9 @@ async function init() {
     loadNUTS();
 }
 
-//Asyc fetch latest value for waste for every nut code in set of codes. 
+//Asyc fetch latest value for waste for every nut code in set of codes.
 //Push all values into an array and return max value of all.
-async function maxWaste(nutCode) {
+async function fetchWasteData(nutCode) {
     const waste = [];
     for (const element of nutCode) {
         const query = queryMaxWaste(element);
@@ -84,7 +104,6 @@ async function maxWaste(nutCode) {
             waste.push({ nut: id, waste: value });
         }
     }
-    console.log(waste)
     const maxWaste = Math.max.apply(Math, waste.map(function (element) { return element.waste }))
     return { maxWaste: maxWaste, wasteArray: waste };
 }
@@ -193,7 +212,7 @@ function getColor(d) {
             d > .2 ? '#2D9847' :
             d > .1 ? '#16AB3A' :
             d == undefined ? '#000000':
-                     '#00BF2E' 
+                     '#00BF2E'
 }
 
 
@@ -201,9 +220,9 @@ function openNav() {
   document.getElementById("main").style.marginRight = "25%";
   document.getElementById("mySidenav").style.width = "25%";
   document.getElementById("mySidenav").style.display = "block";
-    
+
 }
-  
+
 function closeNav() {
 document.getElementById("main").style.marginRight = "0%";
 document.getElementById("mySidenav").style.display = "none";
