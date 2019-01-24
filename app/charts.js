@@ -44,13 +44,37 @@ function setLineChart(input){
 }
 
 function setPrcChart(input){
-    labels = [];
-    datas = [];
-    data = data;
+    pieLabels = [];
+    pieData = [];
+    data2 = {    
+        labels: pieLabels,
+        datasets: [
+            {
+                label: "Waste Distribution",
+                backgroundColor: ["#CDCD2F", "#2ECC40", "#FF4136"],
+                fillColor: "rgba(220,220,220,0.2)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                pointHighlightFill: "#fff",
+                pointHighlightStroke: "rgba(220,220,220,1)",
+                data: pieData
+            }
+        ]
+    };
 
+    const energyRecovery = input.energyRecovery.value;
+    const recycling = input.recycling.value;
+    pieData.push(energyRecovery);
+    pieData.push(recycling);
+    pieData.push(input.wasteGeneration.value - energyRecovery - recycling);
+
+    pieLabels.push("Energy Recovery");
+    pieLabels.push("Recycling");
+    pieLabels.push("Waste");
     var PieChart = new Chart(pieChart,{
-        type: 'pie',
-        data: data,
+        type: 'doughnut',
+        data: data2,
         options: options
     });
 }
