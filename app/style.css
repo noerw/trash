@@ -10,6 +10,10 @@ html, body{
   height:100%;
 }
 
+#dataTitle{
+  text-align: center;
+}
+
 .sidenav {
   height: 100%;
   width: 0;

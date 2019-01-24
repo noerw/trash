@@ -65,27 +65,42 @@ function setPrcChart(input){
 
 
     if(input  == null){
+        console.log("test");
+        var PieChart = new Chart(pieChart,{
+            type: 'doughnut',
+            data: [],
+            options: options
+        });
+
+
+
         return;
+
+
+    }else{
+
+        const energyRecovery = input.energyRecovery.value;
+        const recycling = input.recycling.value;
+    
+    
+        pieData.push(energyRecovery);
+        pieData.push(recycling);
+        pieData.push(input.wasteGeneration.value - energyRecovery - recycling);
+    
+        pieLabels.push("Energy Recovery");
+        pieLabels.push("Recycling");
+        pieLabels.push("Waste");
+        var PieChart = new Chart(pieChart,{
+            type: 'doughnut',
+            data: data2,
+            options: options
+        });
+
     }
 
 
 
-    const energyRecovery = input.energyRecovery.value;
-    const recycling = input.recycling.value;
 
-
-    pieData.push(energyRecovery);
-    pieData.push(recycling);
-    pieData.push(input.wasteGeneration.value - energyRecovery - recycling);
-
-    pieLabels.push("Energy Recovery");
-    pieLabels.push("Recycling");
-    pieLabels.push("Waste");
-    var PieChart = new Chart(pieChart,{
-        type: 'doughnut',
-        data: data2,
-        options: options
-    });
 }
 
 
