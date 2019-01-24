@@ -112,7 +112,6 @@ function addChoroplethToMap(layer){
     layerGroup.clearLayers();
     layer.addTo(layerGroup)
     buildLegend(layer)
-
 }
 
 function buildLegend(layer){
@@ -153,11 +152,20 @@ async function prepareNutsLevel (url, queryFunction) {
     const nutsCodes = geojson.features.map(feat => feat.properties.NUTS_ID);
     const wasteData = await fetchWasteData(nutsCodes, queryFunction);
     for (const feat of geojson.features) {
-        if(wasteData[feat.id] == undefined) continue;
-        const { population, wasteGeneration } = wasteData[feat.id]
-        feat.properties['wasteGeneration'] = (wasteGeneration / population)
-        if (population !== 1) //Back to kg/capita
-            feat.properties['wasteGeneration'] *= 1e6
+        if (!wasteData[feat.properties.NUTS_ID])
+            continue;
+
+        const { population, wasteGeneration, year } = wasteData[feat.properties.NUTS_ID];
+        feat.properties['wasteGeneration'] = wasteGeneration / population;
+        feat.properties['year'] = year;
+
+        // transform back to kg/capita (population is !== 1 for NUTS2 data,
+        // which is in kilotonnes per region)
+        if (population !== 1)
+            feat.properties['wasteGeneration'] *= 1e6;
+
+        // round the value to 2 digits
+        feat.properties['wasteGeneration'] = Math.round(feat.properties['wasteGeneration'] * 100) / 100;
     }
 
     return buildChoroplethLayer(geojson);
@@ -166,23 +174,23 @@ async function prepareNutsLevel (url, queryFunction) {
 //Asyc fetch latest value for waste for every nut code in set of codes.
 //Push all values into an array and return max value of all.
 async function fetchWasteData (nutsCodes, queryFunction) {
-    const wasteGeneration = {};
+    const results = {};
     for (const nutsCode of nutsCodes) {
         const json = await queryFunction(nutsCode)
         if (json.results.bindings.length > 1) {
-            const id = json.results.bindings[0].obs.value.split('_').pop();
-            const value = json.results.bindings[0].wasteGeneration.value
-            let pop = 1;
-            if(json.results.bindings[0].population){
-                pop = json.results.bindings[0].population.value
-            }
-            wasteGeneration[id] = {
-                wasteGeneration: Number.parseFloat(value),
-                population: Number.parseFloat(pop)
+            const { obs, wasteGeneration, population, year } = json.results.bindings[0]
+            const nuts = obs.value.split('_').pop();
+
+            results[nuts] = {
+                wasteGeneration: Number.parseFloat(wasteGeneration.value),
+                year: Number.parseFloat(year.value),
+                // fallback value `1` for NUTS0, where no population data is available / needed
+                population: Number.parseFloat(population ? population.value : 1),
             }
         }
     }
-    return wasteGeneration;
+
+    return results;
 }
 
 function buildChoroplethLayer (geojson) {
@@ -207,7 +215,16 @@ function onEachFeature (feature, layer) {
                 weight: 3,
                 color: '#666',
             }).bringToFront();
-            layer.bindPopup(event.sourceTarget.feature.id+":  "+event.sourceTarget.feature.properties.wasteGeneration + " Waste (kg/Capita)",{closeButton: false, offset: L.point(0, -20)});
+            const { NUTS_NAME, wasteGeneration, year } = event.target.feature.properties;
+            if (wasteGeneration) { // only if data is already loaded
+                const popup = `
+                    <b>${NUTS_NAME}</b>
+                    <table>
+                        <tr><th>Solid Waste Generation: </th><td>${wasteGeneration} kg / capita (${year})</td></tr>
+                    </table>`
+                layer.bindPopup(popup, { closeButton: false });
+                layer.openPopup();
+            }
         },
         mouseout: (event) => {
             event.target.setStyle({
@@ -217,16 +234,15 @@ function onEachFeature (feature, layer) {
             mymap.closePopup();
         },
         click: async (event) => {
-            var nut = event.sourceTarget.feature.id;
-            var name = event.sourceTarget.feature.properties.NUTS_NAME.toLowerCase();
-            name = name.charAt(0).toUpperCase() + name.slice(1);
+            const { NUTS_ID, NUTS_NAME } = event.target.feature.properties;
+            const name = NUTS_NAME.charAt(0).toUpperCase() + NUTS_NAME.slice(1);
             document.getElementById('dataTitle').innerHTML = name;
             openNav();
 
-            const json = await queryLatestWasteGenForNuts0(nut)
+            const json = await queryLatestWasteGenForNuts0(NUTS_ID)
             setLineChart(json.results.bindings);
 
-            const pieData = await queryLatestForNuts(nut);
+            const pieData = await queryLatestForNuts(NUTS_ID);
             setPrcChart(pieData.results.bindings[0]);
         },
     });
