@@ -1,7 +1,7 @@
 # This dataset is structured following the qb vocabulary:
 # https://www.w3.org/TR/vocab-data-cube/
 #
-# generated on 2019-01-24T11:03:36.305Z with https://github.com/noerw/trash
+# generated on 2019-01-24T14:31:15.165Z with https://github.com/noerw/trash
 
 @prefix euwaste: <http://course.geoinfo2018.org/G3#>.
 
@@ -35,6 +35,14 @@ euwaste:dataset a qb:DataSet, dcat:Dataset;
     rdfs:seeAlso <https://github.com/noerw/trash>.
 
 # our attributes: waste generation per capita, recycling amount, energy recovery per capita
+euwaste:attrPopulation a rdf:Property, qb:MeasureProperty;
+    rdfs:label "Population Count"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    rdfs:range xsd:decimal, xsd:integer;
+    sdmx-attribute:unitMeasure "count";
+    rdfs:sameAs <http://www.geonames.org/ontology#population>;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Property:P1082>.
+
 euwaste:attrWastePerCapita a rdf:Property, qb:MeasureProperty;
     rdfs:label "Solid Waste per Capita (kg)"@en;
     rdfs:subPropertyOf sdmx-measure:obsValue;
@@ -13766,10 +13774,29 @@ euwaste:obs_2012_XK a qb:Observation;
     euwaste:refPeriod "2012"^^xsd:gYear;
     euwaste:attrWastePerCapita "646"^^xsd:decimal.
 
+euwaste:obs_2013_AL01 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:AL01;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "826904"^^xsd:decimal.
+
+euwaste:obs_2013_AL02 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:AL02;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1146183"^^xsd:decimal.
+
+euwaste:obs_2013_AL03 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:AL03;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "903504"^^xsd:decimal.
+
 euwaste:obs_2013_AT11 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:AT11;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "291942"^^xsd:decimal;
     euwaste:attrWastePerCapita "127.1"^^xsd:decimal;
     euwaste:attrEnergyRecovery "42.16"^^xsd:decimal;
     euwaste:attrRecycling "46.8"^^xsd:decimal.
@@ -13778,6 +13805,7 @@ euwaste:obs_2013_AT12 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:AT12;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1665753"^^xsd:decimal;
     euwaste:attrWastePerCapita "839.3"^^xsd:decimal;
     euwaste:attrEnergyRecovery "334.18"^^xsd:decimal;
     euwaste:attrRecycling "223"^^xsd:decimal.
@@ -13786,6 +13814,7 @@ euwaste:obs_2013_AT13 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:AT13;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1867582"^^xsd:decimal;
     euwaste:attrWastePerCapita "875.28"^^xsd:decimal;
     euwaste:attrEnergyRecovery "564.94"^^xsd:decimal;
     euwaste:attrRecycling "192.88"^^xsd:decimal.
@@ -13794,6 +13823,7 @@ euwaste:obs_2013_AT21 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:AT21;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "561077"^^xsd:decimal;
     euwaste:attrWastePerCapita "231.95"^^xsd:decimal;
     euwaste:attrEnergyRecovery "120.99"^^xsd:decimal;
     euwaste:attrRecycling "70.99"^^xsd:decimal.
@@ -13802,6 +13832,7 @@ euwaste:obs_2013_AT22 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:AT22;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1237298"^^xsd:decimal;
     euwaste:attrWastePerCapita "516.01"^^xsd:decimal;
     euwaste:attrEnergyRecovery "146.61"^^xsd:decimal;
     euwaste:attrRecycling "183.69"^^xsd:decimal.
@@ -13810,6 +13841,7 @@ euwaste:obs_2013_AT31 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:AT31;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1465045"^^xsd:decimal;
     euwaste:attrWastePerCapita "696.06"^^xsd:decimal;
     euwaste:attrEnergyRecovery "265.63"^^xsd:decimal;
     euwaste:attrRecycling "232.83"^^xsd:decimal.
@@ -13818,6 +13850,7 @@ euwaste:obs_2013_AT32 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:AT32;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "549263"^^xsd:decimal;
     euwaste:attrWastePerCapita "257.4"^^xsd:decimal;
     euwaste:attrEnergyRecovery "58.86"^^xsd:decimal;
     euwaste:attrRecycling "76.75"^^xsd:decimal.
@@ -13826,6 +13859,7 @@ euwaste:obs_2013_AT33 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:AT33;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "746153"^^xsd:decimal;
     euwaste:attrWastePerCapita "358.01"^^xsd:decimal;
     euwaste:attrEnergyRecovery "143.88"^^xsd:decimal;
     euwaste:attrRecycling "119.29"^^xsd:decimal.
@@ -13834,14 +13868,244 @@ euwaste:obs_2013_AT34 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:AT34;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "388752"^^xsd:decimal;
     euwaste:attrWastePerCapita "130.57"^^xsd:decimal;
     euwaste:attrEnergyRecovery "38.1"^^xsd:decimal;
     euwaste:attrRecycling "56.17"^^xsd:decimal.
+
+euwaste:obs_2013_BE10 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:BE10;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1199095"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "315.4"^^xsd:decimal;
+    euwaste:attrRecycling "100.45"^^xsd:decimal.
+
+euwaste:obs_2013_BE21 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:BE21;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1838863"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "281.26"^^xsd:decimal;
+    euwaste:attrRecycling "263.78"^^xsd:decimal.
+
+euwaste:obs_2013_BE22 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:BE22;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "869664"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "118.97"^^xsd:decimal;
+    euwaste:attrRecycling "144.82"^^xsd:decimal.
+
+euwaste:obs_2013_BE23 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:BE23;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1498483"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "251.35"^^xsd:decimal;
+    euwaste:attrRecycling "249.1"^^xsd:decimal.
+
+euwaste:obs_2013_BE24 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:BE24;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1130644"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "172.29"^^xsd:decimal;
+    euwaste:attrRecycling "165.24"^^xsd:decimal.
+
+euwaste:obs_2013_BE25 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:BE25;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1188407"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "224.02"^^xsd:decimal;
+    euwaste:attrRecycling "221.95"^^xsd:decimal.
+
+euwaste:obs_2013_BE31 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:BE31;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "399735"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "86.37"^^xsd:decimal;
+    euwaste:attrRecycling "49.68"^^xsd:decimal.
+
+euwaste:obs_2013_BE32 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:BE32;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1342053"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "255.22"^^xsd:decimal;
+    euwaste:attrRecycling "135.91"^^xsd:decimal.
+
+euwaste:obs_2013_BE33 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:BE33;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1106039"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "222.68"^^xsd:decimal;
+    euwaste:attrRecycling "118.65"^^xsd:decimal.
+
+euwaste:obs_2013_BE34 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:BE34;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "284617"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "59.73"^^xsd:decimal;
+    euwaste:attrRecycling "38.43"^^xsd:decimal.
+
+euwaste:obs_2013_BE35 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:BE35;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "494127"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "88.82"^^xsd:decimal;
+    euwaste:attrRecycling "61.98"^^xsd:decimal.
+
+euwaste:obs_2013_BG31 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:BG31;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "769623"^^xsd:decimal;
+    euwaste:attrRecycling "17"^^xsd:decimal.
+
+euwaste:obs_2013_BG32 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:BG32;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "805441"^^xsd:decimal;
+    euwaste:attrRecycling "41"^^xsd:decimal.
+
+euwaste:obs_2013_BG33 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:BG33;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "939262"^^xsd:decimal;
+    euwaste:attrRecycling "59"^^xsd:decimal.
+
+euwaste:obs_2013_BG34 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:BG34;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1046125"^^xsd:decimal;
+    euwaste:attrRecycling "19"^^xsd:decimal.
+
+euwaste:obs_2013_BG41 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:BG41;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2115344"^^xsd:decimal;
+    euwaste:attrRecycling "96"^^xsd:decimal.
+
+euwaste:obs_2013_BG42 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:BG42;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1426064"^^xsd:decimal;
+    euwaste:attrRecycling "39"^^xsd:decimal.
+
+euwaste:obs_2013_CH01 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:CH01;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1613522"^^xsd:decimal.
+
+euwaste:obs_2013_CH02 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:CH02;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1859557"^^xsd:decimal.
+
+euwaste:obs_2013_CH03 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:CH03;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1142156"^^xsd:decimal.
+
+euwaste:obs_2013_CH04 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:CH04;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1487969"^^xsd:decimal.
+
+euwaste:obs_2013_CH05 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:CH05;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1162684"^^xsd:decimal.
+
+euwaste:obs_2013_CH06 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:CH06;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "799287"^^xsd:decimal.
+
+euwaste:obs_2013_CH07 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:CH07;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "354375"^^xsd:decimal.
+
+euwaste:obs_2013_CY00 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:CY00;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "854802"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "0"^^xsd:decimal;
+    euwaste:attrRecycling "66"^^xsd:decimal.
+
+euwaste:obs_2013_CZ01 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:CZ01;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1280508"^^xsd:decimal.
+
+euwaste:obs_2013_CZ02 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:CZ02;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1338982"^^xsd:decimal.
+
+euwaste:obs_2013_CZ03 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:CZ03;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1217411"^^xsd:decimal.
+
+euwaste:obs_2013_CZ04 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:CZ04;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1118126"^^xsd:decimal.
+
+euwaste:obs_2013_CZ05 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:CZ05;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1508527"^^xsd:decimal.
+
+euwaste:obs_2013_CZ06 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:CZ06;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1687764"^^xsd:decimal.
+
+euwaste:obs_2013_CZ07 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:CZ07;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1217623"^^xsd:decimal.
+
+euwaste:obs_2013_CZ08 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:CZ08;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1209879"^^xsd:decimal.
 
 euwaste:obs_2013_DE11 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE11;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "4098278"^^xsd:decimal;
     euwaste:attrWastePerCapita "1735.6"^^xsd:decimal;
     euwaste:attrRecycling "1216.3"^^xsd:decimal.
 
@@ -13849,6 +14113,7 @@ euwaste:obs_2013_DE12 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE12;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2779314"^^xsd:decimal;
     euwaste:attrWastePerCapita "1268.9"^^xsd:decimal;
     euwaste:attrRecycling "878.8"^^xsd:decimal.
 
@@ -13856,6 +14121,7 @@ euwaste:obs_2013_DE13 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE13;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2239734"^^xsd:decimal;
     euwaste:attrWastePerCapita "988.7"^^xsd:decimal;
     euwaste:attrRecycling "711.8"^^xsd:decimal.
 
@@ -13863,6 +14129,7 @@ euwaste:obs_2013_DE14 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE14;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1834567"^^xsd:decimal;
     euwaste:attrWastePerCapita "707.3"^^xsd:decimal;
     euwaste:attrRecycling "506.9"^^xsd:decimal.
 
@@ -13870,6 +14137,7 @@ euwaste:obs_2013_DE21 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE21;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "4633323"^^xsd:decimal;
     euwaste:attrWastePerCapita "1972.8"^^xsd:decimal;
     euwaste:attrRecycling "773.8"^^xsd:decimal.
 
@@ -13877,6 +14145,7 @@ euwaste:obs_2013_DE22 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE22;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1219397"^^xsd:decimal;
     euwaste:attrWastePerCapita "553.4"^^xsd:decimal;
     euwaste:attrRecycling "180.1"^^xsd:decimal.
 
@@ -13884,6 +14153,7 @@ euwaste:obs_2013_DE23 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE23;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1098378"^^xsd:decimal;
     euwaste:attrWastePerCapita "486.5"^^xsd:decimal;
     euwaste:attrRecycling "160.7"^^xsd:decimal.
 
@@ -13891,6 +14161,7 @@ euwaste:obs_2013_DE24 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE24;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1062394"^^xsd:decimal;
     euwaste:attrWastePerCapita "564"^^xsd:decimal;
     euwaste:attrRecycling "190.8"^^xsd:decimal.
 
@@ -13898,6 +14169,7 @@ euwaste:obs_2013_DE25 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE25;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1750059"^^xsd:decimal;
     euwaste:attrWastePerCapita "819.9"^^xsd:decimal;
     euwaste:attrRecycling "305"^^xsd:decimal.
 
@@ -13905,6 +14177,7 @@ euwaste:obs_2013_DE26 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE26;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1309209"^^xsd:decimal;
     euwaste:attrWastePerCapita "669.3"^^xsd:decimal;
     euwaste:attrRecycling "288.2"^^xsd:decimal.
 
@@ -13912,6 +14185,7 @@ euwaste:obs_2013_DE27 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE27;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1857991"^^xsd:decimal;
     euwaste:attrWastePerCapita "875.1"^^xsd:decimal;
     euwaste:attrRecycling "353.4"^^xsd:decimal.
 
@@ -13919,6 +14193,7 @@ euwaste:obs_2013_DE30 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE30;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3574830"^^xsd:decimal;
     euwaste:attrWastePerCapita "1389.6"^^xsd:decimal;
     euwaste:attrRecycling "1254.8"^^xsd:decimal.
 
@@ -13926,6 +14201,7 @@ euwaste:obs_2013_DE40 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE40;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2494648"^^xsd:decimal;
     euwaste:attrWastePerCapita "963.2"^^xsd:decimal;
     euwaste:attrRecycling "600"^^xsd:decimal.
 
@@ -13933,6 +14209,7 @@ euwaste:obs_2013_DE50 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE50;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "678753"^^xsd:decimal;
     euwaste:attrWastePerCapita "287"^^xsd:decimal;
     euwaste:attrRecycling "231.2"^^xsd:decimal.
 
@@ -13940,6 +14217,7 @@ euwaste:obs_2013_DE60 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE60;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1810438"^^xsd:decimal;
     euwaste:attrWastePerCapita "790"^^xsd:decimal;
     euwaste:attrRecycling "229.9"^^xsd:decimal.
 
@@ -13947,6 +14225,7 @@ euwaste:obs_2013_DE71 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE71;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3951234"^^xsd:decimal;
     euwaste:attrWastePerCapita "1734.4"^^xsd:decimal;
     euwaste:attrRecycling "1295.3"^^xsd:decimal.
 
@@ -13954,6 +14233,7 @@ euwaste:obs_2013_DE72 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE72;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1043643"^^xsd:decimal;
     euwaste:attrWastePerCapita "474.3"^^xsd:decimal;
     euwaste:attrRecycling "339.5"^^xsd:decimal.
 
@@ -13961,6 +14241,7 @@ euwaste:obs_2013_DE73 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE73;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1218211"^^xsd:decimal;
     euwaste:attrWastePerCapita "580.2"^^xsd:decimal;
     euwaste:attrRecycling "389.4"^^xsd:decimal.
 
@@ -13968,6 +14249,7 @@ euwaste:obs_2013_DE80 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE80;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1610674"^^xsd:decimal;
     euwaste:attrWastePerCapita "682.1"^^xsd:decimal;
     euwaste:attrRecycling "418"^^xsd:decimal.
 
@@ -13975,6 +14257,7 @@ euwaste:obs_2013_DE91 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE91;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1595609"^^xsd:decimal;
     euwaste:attrWastePerCapita "756.7"^^xsd:decimal;
     euwaste:attrRecycling "260.5"^^xsd:decimal.
 
@@ -13982,6 +14265,7 @@ euwaste:obs_2013_DE92 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE92;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2139976"^^xsd:decimal;
     euwaste:attrWastePerCapita "1136.7"^^xsd:decimal;
     euwaste:attrRecycling "381.8"^^xsd:decimal.
 
@@ -13989,6 +14273,7 @@ euwaste:obs_2013_DE93 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE93;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1703945"^^xsd:decimal;
     euwaste:attrWastePerCapita "805.6"^^xsd:decimal;
     euwaste:attrRecycling "302.8"^^xsd:decimal.
 
@@ -13996,6 +14281,7 @@ euwaste:obs_2013_DE94 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DE94;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2506155"^^xsd:decimal;
     euwaste:attrWastePerCapita "1208.2"^^xsd:decimal;
     euwaste:attrRecycling "442"^^xsd:decimal.
 
@@ -14003,6 +14289,7 @@ euwaste:obs_2013_DEA1 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DEA1;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "5190790"^^xsd:decimal;
     euwaste:attrWastePerCapita "2419.2"^^xsd:decimal;
     euwaste:attrRecycling "597.5"^^xsd:decimal.
 
@@ -14010,6 +14297,7 @@ euwaste:obs_2013_DEA2 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DEA2;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "4439416"^^xsd:decimal;
     euwaste:attrWastePerCapita "2056.9"^^xsd:decimal;
     euwaste:attrRecycling "561.6"^^xsd:decimal.
 
@@ -14017,6 +14305,7 @@ euwaste:obs_2013_DEA3 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DEA3;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2619376"^^xsd:decimal;
     euwaste:attrWastePerCapita "1258.4"^^xsd:decimal;
     euwaste:attrRecycling "321.4"^^xsd:decimal.
 
@@ -14024,6 +14313,7 @@ euwaste:obs_2013_DEA4 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DEA4;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2054205"^^xsd:decimal;
     euwaste:attrWastePerCapita "810.3"^^xsd:decimal;
     euwaste:attrRecycling "242.4"^^xsd:decimal.
 
@@ -14031,6 +14321,7 @@ euwaste:obs_2013_DEA5 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DEA5;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3586313"^^xsd:decimal;
     euwaste:attrWastePerCapita "1583.4"^^xsd:decimal;
     euwaste:attrRecycling "437.2"^^xsd:decimal.
 
@@ -14038,6 +14329,7 @@ euwaste:obs_2013_DEB1 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DEB1;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1492187"^^xsd:decimal;
     euwaste:attrWastePerCapita "756.1"^^xsd:decimal;
     euwaste:attrRecycling "425.1"^^xsd:decimal.
 
@@ -14045,6 +14337,7 @@ euwaste:obs_2013_DEB2 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DEB2;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "528728"^^xsd:decimal;
     euwaste:attrWastePerCapita "261.3"^^xsd:decimal;
     euwaste:attrRecycling "192.1"^^xsd:decimal.
 
@@ -14052,6 +14345,7 @@ euwaste:obs_2013_DEB3 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DEB3;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2045138"^^xsd:decimal;
     euwaste:attrWastePerCapita "1024.7"^^xsd:decimal;
     euwaste:attrRecycling "713.5"^^xsd:decimal.
 
@@ -14059,6 +14353,7 @@ euwaste:obs_2013_DEC0 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DEC0;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "996651"^^xsd:decimal;
     euwaste:attrWastePerCapita "487.6"^^xsd:decimal;
     euwaste:attrRecycling "345.5"^^xsd:decimal.
 
@@ -14066,6 +14361,7 @@ euwaste:obs_2013_DED2 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DED2;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1600155"^^xsd:decimal;
     euwaste:attrWastePerCapita "515.2"^^xsd:decimal;
     euwaste:attrRecycling "401.2"^^xsd:decimal.
 
@@ -14073,6 +14369,7 @@ euwaste:obs_2013_DED4 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DED4;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1454144"^^xsd:decimal;
     euwaste:attrWastePerCapita "455.3"^^xsd:decimal;
     euwaste:attrRecycling "394.1"^^xsd:decimal.
 
@@ -14080,6 +14377,7 @@ euwaste:obs_2013_DED5 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DED5;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1027484"^^xsd:decimal;
     euwaste:attrWastePerCapita "329.6"^^xsd:decimal;
     euwaste:attrRecycling "223.8"^^xsd:decimal.
 
@@ -14087,6 +14385,7 @@ euwaste:obs_2013_DEE0 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DEE0;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2236252"^^xsd:decimal;
     euwaste:attrWastePerCapita "1009.6"^^xsd:decimal;
     euwaste:attrRecycling "498.8"^^xsd:decimal.
 
@@ -14094,6 +14393,7 @@ euwaste:obs_2013_DEF0 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DEF0;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2881926"^^xsd:decimal;
     euwaste:attrWastePerCapita "1325.3"^^xsd:decimal;
     euwaste:attrRecycling "490.7"^^xsd:decimal.
 
@@ -14101,13 +14401,453 @@ euwaste:obs_2013_DEG0 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:DEG0;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2158128"^^xsd:decimal;
     euwaste:attrWastePerCapita "881.6"^^xsd:decimal;
     euwaste:attrRecycling "322.6"^^xsd:decimal.
+
+euwaste:obs_2013_DK01 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:DK01;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1807404"^^xsd:decimal.
+
+euwaste:obs_2013_DK02 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:DK02;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "832553"^^xsd:decimal.
+
+euwaste:obs_2013_DK03 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:DK03;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1217224"^^xsd:decimal.
+
+euwaste:obs_2013_DK04 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:DK04;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1304253"^^xsd:decimal.
+
+euwaste:obs_2013_DK05 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:DK05;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "587335"^^xsd:decimal.
+
+euwaste:obs_2013_EE00 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:EE00;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1315635"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "214"^^xsd:decimal;
+    euwaste:attrRecycling "47"^^xsd:decimal.
+
+euwaste:obs_2013_EL30 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:EL30;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3773559"^^xsd:decimal.
+
+euwaste:obs_2013_EL41 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:EL41;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "203700"^^xsd:decimal.
+
+euwaste:obs_2013_EL42 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:EL42;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "338383"^^xsd:decimal.
+
+euwaste:obs_2013_EL43 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:EL43;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "632674"^^xsd:decimal.
+
+euwaste:obs_2013_EL51 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:EL51;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "602799"^^xsd:decimal.
+
+euwaste:obs_2013_EL52 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:EL52;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1880122"^^xsd:decimal.
+
+euwaste:obs_2013_EL53 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:EL53;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "271488"^^xsd:decimal.
+
+euwaste:obs_2013_EL54 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:EL54;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "335250"^^xsd:decimal.
+
+euwaste:obs_2013_EL61 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:EL61;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "725874"^^xsd:decimal.
+
+euwaste:obs_2013_EL62 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:EL62;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "205431"^^xsd:decimal.
+
+euwaste:obs_2013_EL63 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:EL63;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "663970"^^xsd:decimal.
+
+euwaste:obs_2013_EL64 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:EL64;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "555761"^^xsd:decimal.
+
+euwaste:obs_2013_EL65 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:EL65;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "579182"^^xsd:decimal.
+
+euwaste:obs_2013_ES11 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ES11;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2710216"^^xsd:decimal.
+
+euwaste:obs_2013_ES12 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ES12;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1034302"^^xsd:decimal.
+
+euwaste:obs_2013_ES13 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ES13;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "581490"^^xsd:decimal.
+
+euwaste:obs_2013_ES21 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ES21;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2167323"^^xsd:decimal.
+
+euwaste:obs_2013_ES22 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ES22;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "640353"^^xsd:decimal.
+
+euwaste:obs_2013_ES23 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ES23;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "312624"^^xsd:decimal.
+
+euwaste:obs_2013_ES24 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ES24;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1316072"^^xsd:decimal.
+
+euwaste:obs_2013_ES30 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ES30;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "6476838"^^xsd:decimal.
+
+euwaste:obs_2013_ES41 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ES41;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2435951"^^xsd:decimal.
+
+euwaste:obs_2013_ES42 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ES42;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2040977"^^xsd:decimal.
+
+euwaste:obs_2013_ES43 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ES43;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1077525"^^xsd:decimal.
+
+euwaste:obs_2013_ES51 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ES51;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "7441284"^^xsd:decimal.
+
+euwaste:obs_2013_ES52 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ES52;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "4935182"^^xsd:decimal.
+
+euwaste:obs_2013_ES53 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ES53;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1150962"^^xsd:decimal.
+
+euwaste:obs_2013_ES61 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ES61;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "8408976"^^xsd:decimal.
+
+euwaste:obs_2013_ES62 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ES62;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1472991"^^xsd:decimal.
+
+euwaste:obs_2013_ES63 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ES63;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "85034"^^xsd:decimal.
+
+euwaste:obs_2013_ES64 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ES64;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "84946"^^xsd:decimal.
+
+euwaste:obs_2013_ES70 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ES70;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2154978"^^xsd:decimal.
+
+euwaste:obs_2013_FI19 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FI19;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1380593"^^xsd:decimal.
+
+euwaste:obs_2013_FI1B a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FI1B;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1638293"^^xsd:decimal.
+
+euwaste:obs_2013_FI1C a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FI1C;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1159174"^^xsd:decimal.
+
+euwaste:obs_2013_FI1D a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FI1D;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1296023"^^xsd:decimal.
+
+euwaste:obs_2013_FI20 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FI20;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "29214"^^xsd:decimal.
+
+euwaste:obs_2013_FR10 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR10;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "12193865"^^xsd:decimal.
+
+euwaste:obs_2013_FR21 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR21;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1334453"^^xsd:decimal.
+
+euwaste:obs_2013_FR22 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR22;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1934171"^^xsd:decimal.
+
+euwaste:obs_2013_FR23 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR23;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1865332"^^xsd:decimal.
+
+euwaste:obs_2013_FR24 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR24;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2582302"^^xsd:decimal.
+
+euwaste:obs_2013_FR25 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR25;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1477290"^^xsd:decimal.
+
+euwaste:obs_2013_FR26 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR26;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1637366"^^xsd:decimal.
+
+euwaste:obs_2013_FR30 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR30;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "4087132"^^xsd:decimal.
+
+euwaste:obs_2013_FR41 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR41;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2330674"^^xsd:decimal.
+
+euwaste:obs_2013_FR42 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR42;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1888937"^^xsd:decimal.
+
+euwaste:obs_2013_FR43 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR43;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1179900"^^xsd:decimal.
+
+euwaste:obs_2013_FR51 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR51;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3765798"^^xsd:decimal.
+
+euwaste:obs_2013_FR52 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR52;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3323130"^^xsd:decimal.
+
+euwaste:obs_2013_FR53 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR53;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1811206"^^xsd:decimal.
+
+euwaste:obs_2013_FR61 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR61;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3422179"^^xsd:decimal.
+
+euwaste:obs_2013_FR62 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR62;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3046465"^^xsd:decimal.
+
+euwaste:obs_2013_FR63 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR63;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "735908"^^xsd:decimal.
+
+euwaste:obs_2013_FR71 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR71;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "6621564"^^xsd:decimal.
+
+euwaste:obs_2013_FR72 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR72;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1365263"^^xsd:decimal.
+
+euwaste:obs_2013_FR81 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR81;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2815936"^^xsd:decimal.
+
+euwaste:obs_2013_FR82 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR82;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "5047942"^^xsd:decimal.
+
+euwaste:obs_2013_FR83 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FR83;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "334283"^^xsd:decimal.
+
+euwaste:obs_2013_FRA1 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FRA1;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "429085"^^xsd:decimal.
+
+euwaste:obs_2013_FRA2 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FRA2;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "374780"^^xsd:decimal.
+
+euwaste:obs_2013_FRA3 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FRA3;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "274153"^^xsd:decimal.
+
+euwaste:obs_2013_FRA4 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FRA4;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "860815"^^xsd:decimal.
+
+euwaste:obs_2013_FRA5 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:FRA5;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "249154"^^xsd:decimal.
+
+euwaste:obs_2013_HR03 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:HR03;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1387363"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "0"^^xsd:decimal;
+    euwaste:attrRecycling "97.85"^^xsd:decimal.
+
+euwaste:obs_2013_HR04 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:HR04;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2766850"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "0.7547"^^xsd:decimal;
+    euwaste:attrRecycling "130.07"^^xsd:decimal.
 
 euwaste:obs_2013_HU10 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:HU10;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3000076"^^xsd:decimal;
     euwaste:attrWastePerCapita "861.74"^^xsd:decimal;
     euwaste:attrEnergyRecovery "335.88"^^xsd:decimal;
     euwaste:attrRecycling "313.04"^^xsd:decimal.
@@ -14116,6 +14856,7 @@ euwaste:obs_2013_HU21 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:HU21;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1056097"^^xsd:decimal;
     euwaste:attrWastePerCapita "358.47"^^xsd:decimal;
     euwaste:attrEnergyRecovery "0"^^xsd:decimal;
     euwaste:attrRecycling "87.85"^^xsd:decimal.
@@ -14124,6 +14865,7 @@ euwaste:obs_2013_HU22 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:HU22;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "983251"^^xsd:decimal;
     euwaste:attrWastePerCapita "222.03"^^xsd:decimal;
     euwaste:attrEnergyRecovery "0"^^xsd:decimal;
     euwaste:attrRecycling "108.96"^^xsd:decimal.
@@ -14132,6 +14874,7 @@ euwaste:obs_2013_HU23 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:HU23;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "894223"^^xsd:decimal;
     euwaste:attrWastePerCapita "245.17"^^xsd:decimal;
     euwaste:attrEnergyRecovery "0"^^xsd:decimal;
     euwaste:attrRecycling "45.55"^^xsd:decimal.
@@ -14140,6 +14883,7 @@ euwaste:obs_2013_HU31 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:HU31;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1143902"^^xsd:decimal;
     euwaste:attrWastePerCapita "351.36"^^xsd:decimal;
     euwaste:attrEnergyRecovery "0"^^xsd:decimal;
     euwaste:attrRecycling "54.66"^^xsd:decimal.
@@ -14148,6 +14892,7 @@ euwaste:obs_2013_HU32 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:HU32;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1468088"^^xsd:decimal;
     euwaste:attrWastePerCapita "425.84"^^xsd:decimal;
     euwaste:attrEnergyRecovery "0"^^xsd:decimal;
     euwaste:attrRecycling "81.32"^^xsd:decimal.
@@ -14156,30 +14901,235 @@ euwaste:obs_2013_HU33 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:HU33;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1251924"^^xsd:decimal;
     euwaste:attrWastePerCapita "252.27"^^xsd:decimal;
     euwaste:attrEnergyRecovery "0"^^xsd:decimal;
     euwaste:attrRecycling "108.12"^^xsd:decimal.
+
+euwaste:obs_2013_IE01 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:IE01;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1274988"^^xsd:decimal.
+
+euwaste:obs_2013_IE02 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:IE02;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3509395"^^xsd:decimal.
+
+euwaste:obs_2013_IS00 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:IS00;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "338349"^^xsd:decimal.
+
+euwaste:obs_2013_ITC1 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ITC1;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "4392526"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "185.04"^^xsd:decimal.
+
+euwaste:obs_2013_ITC2 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ITC2;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "126883"^^xsd:decimal.
+
+euwaste:obs_2013_ITC3 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ITC3;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1565307"^^xsd:decimal.
+
+euwaste:obs_2013_ITC4 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ITC4;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "10019166"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "2220.49"^^xsd:decimal.
+
+euwaste:obs_2013_ITF1 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ITF1;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1322247"^^xsd:decimal.
+
+euwaste:obs_2013_ITF2 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ITF2;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "310449"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "91.35"^^xsd:decimal.
+
+euwaste:obs_2013_ITF3 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ITF3;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "5839084"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "672.94"^^xsd:decimal.
+
+euwaste:obs_2013_ITF4 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ITF4;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "4063888"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "107.39"^^xsd:decimal.
+
+euwaste:obs_2013_ITF5 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ITF5;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "570365"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "30.34"^^xsd:decimal.
+
+euwaste:obs_2013_ITF6 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ITF6;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1965128"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "27.63"^^xsd:decimal.
+
+euwaste:obs_2013_ITG1 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ITG1;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "5056641"^^xsd:decimal.
+
+euwaste:obs_2013_ITG2 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ITG2;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1653135"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "127.63"^^xsd:decimal.
+
+euwaste:obs_2013_ITH1 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ITH1;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "524256"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "80.81"^^xsd:decimal.
+
+euwaste:obs_2013_ITH2 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ITH2;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "538604"^^xsd:decimal.
+
+euwaste:obs_2013_ITH3 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ITH3;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "4907529"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "354.15"^^xsd:decimal.
+
+euwaste:obs_2013_ITH4 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ITH4;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1217872"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "160.22"^^xsd:decimal.
+
+euwaste:obs_2013_ITH5 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ITH5;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "4448841"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "991.57"^^xsd:decimal.
+
+euwaste:obs_2013_ITI1 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ITI1;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3742437"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "300.94"^^xsd:decimal.
+
+euwaste:obs_2013_ITI2 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ITI2;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "888908"^^xsd:decimal.
+
+euwaste:obs_2013_ITI3 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ITI3;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1538055"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "2.17"^^xsd:decimal.
+
+euwaste:obs_2013_ITI4 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ITI4;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "5898124"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "386.37"^^xsd:decimal.
+
+euwaste:obs_2013_LI00 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:LI00;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "37810"^^xsd:decimal.
 
 euwaste:obs_2013_LT00 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:LT00;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2847904"^^xsd:decimal;
     euwaste:attrWastePerCapita "896"^^xsd:decimal;
     euwaste:attrEnergyRecovery "91"^^xsd:decimal;
     euwaste:attrRecycling "261"^^xsd:decimal.
+
+euwaste:obs_2013_LU00 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:LU00;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "590667"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "123"^^xsd:decimal;
+    euwaste:attrRecycling "99"^^xsd:decimal.
+
+euwaste:obs_2013_LV00 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:LV00;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1950116"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "0"^^xsd:decimal;
+    euwaste:attrRecycling "66"^^xsd:decimal.
+
+euwaste:obs_2013_ME00 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:ME00;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "622387"^^xsd:decimal.
 
 euwaste:obs_2013_MK00 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:MK00;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2073483"^^xsd:decimal;
     euwaste:attrWastePerCapita "440"^^xsd:decimal;
     euwaste:attrEnergyRecovery "0"^^xsd:decimal;
     euwaste:attrRecycling "0"^^xsd:decimal.
+
+euwaste:obs_2013_MKXX a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:MKXX;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "219"^^xsd:decimal.
+
+euwaste:obs_2013_MT00 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:MT00;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "460297"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "1"^^xsd:decimal;
+    euwaste:attrRecycling "13"^^xsd:decimal.
 
 euwaste:obs_2013_NL11 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:NL11;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "583581"^^xsd:decimal;
     euwaste:attrWastePerCapita "281"^^xsd:decimal;
     euwaste:attrEnergyRecovery "153"^^xsd:decimal;
     euwaste:attrRecycling "77"^^xsd:decimal.
@@ -14188,6 +15138,7 @@ euwaste:obs_2013_NL12 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:NL12;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "646874"^^xsd:decimal;
     euwaste:attrWastePerCapita "353"^^xsd:decimal;
     euwaste:attrEnergyRecovery "157"^^xsd:decimal;
     euwaste:attrRecycling "93"^^xsd:decimal.
@@ -14196,6 +15147,7 @@ euwaste:obs_2013_NL13 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:NL13;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "491792"^^xsd:decimal;
     euwaste:attrWastePerCapita "265"^^xsd:decimal;
     euwaste:attrEnergyRecovery "125"^^xsd:decimal;
     euwaste:attrRecycling "65"^^xsd:decimal.
@@ -14204,6 +15156,7 @@ euwaste:obs_2013_NL21 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:NL21;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1147687"^^xsd:decimal;
     euwaste:attrWastePerCapita "506"^^xsd:decimal;
     euwaste:attrEnergyRecovery "241"^^xsd:decimal;
     euwaste:attrRecycling "149"^^xsd:decimal.
@@ -14212,6 +15165,7 @@ euwaste:obs_2013_NL22 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:NL22;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2047901"^^xsd:decimal;
     euwaste:attrWastePerCapita "911"^^xsd:decimal;
     euwaste:attrEnergyRecovery "410"^^xsd:decimal;
     euwaste:attrRecycling "271"^^xsd:decimal.
@@ -14220,6 +15174,7 @@ euwaste:obs_2013_NL23 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:NL23;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "407818"^^xsd:decimal;
     euwaste:attrWastePerCapita "180"^^xsd:decimal;
     euwaste:attrEnergyRecovery "96"^^xsd:decimal;
     euwaste:attrRecycling "54"^^xsd:decimal.
@@ -14228,6 +15183,7 @@ euwaste:obs_2013_NL31 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:NL31;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1284504"^^xsd:decimal;
     euwaste:attrWastePerCapita "581"^^xsd:decimal;
     euwaste:attrEnergyRecovery "317"^^xsd:decimal;
     euwaste:attrRecycling "153"^^xsd:decimal.
@@ -14236,6 +15192,7 @@ euwaste:obs_2013_NL32 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:NL32;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2809483"^^xsd:decimal;
     euwaste:attrWastePerCapita "1244"^^xsd:decimal;
     euwaste:attrEnergyRecovery "796"^^xsd:decimal;
     euwaste:attrRecycling "299"^^xsd:decimal.
@@ -14244,6 +15201,7 @@ euwaste:obs_2013_NL33 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:NL33;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3650222"^^xsd:decimal;
     euwaste:attrWastePerCapita "1603"^^xsd:decimal;
     euwaste:attrEnergyRecovery "1087"^^xsd:decimal;
     euwaste:attrRecycling "353"^^xsd:decimal.
@@ -14252,6 +15210,7 @@ euwaste:obs_2013_NL34 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:NL34;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "381568"^^xsd:decimal;
     euwaste:attrWastePerCapita "228"^^xsd:decimal;
     euwaste:attrEnergyRecovery "112"^^xsd:decimal;
     euwaste:attrRecycling "64"^^xsd:decimal.
@@ -14260,6 +15219,7 @@ euwaste:obs_2013_NL41 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:NL41;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2512531"^^xsd:decimal;
     euwaste:attrWastePerCapita "1135"^^xsd:decimal;
     euwaste:attrEnergyRecovery "505"^^xsd:decimal;
     euwaste:attrRecycling "363"^^xsd:decimal.
@@ -14268,6 +15228,7 @@ euwaste:obs_2013_NL42 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:NL42;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1117546"^^xsd:decimal;
     euwaste:attrWastePerCapita "498"^^xsd:decimal;
     euwaste:attrEnergyRecovery "201"^^xsd:decimal;
     euwaste:attrRecycling "171"^^xsd:decimal.
@@ -14276,6 +15237,7 @@ euwaste:obs_2013_NO01 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:NO01;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1271127"^^xsd:decimal;
     euwaste:attrWastePerCapita "438.89"^^xsd:decimal;
     euwaste:attrEnergyRecovery "188.09"^^xsd:decimal;
     euwaste:attrRecycling "132.85"^^xsd:decimal.
@@ -14284,6 +15246,7 @@ euwaste:obs_2013_NO02 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:NO02;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "385669"^^xsd:decimal;
     euwaste:attrWastePerCapita "156.86"^^xsd:decimal;
     euwaste:attrEnergyRecovery "63.36"^^xsd:decimal;
     euwaste:attrRecycling "49.6"^^xsd:decimal.
@@ -14292,6 +15255,7 @@ euwaste:obs_2013_NO03 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:NO03;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "992962"^^xsd:decimal;
     euwaste:attrWastePerCapita "429.08"^^xsd:decimal;
     euwaste:attrEnergyRecovery "185.13"^^xsd:decimal;
     euwaste:attrRecycling "130.1"^^xsd:decimal.
@@ -14300,6 +15264,7 @@ euwaste:obs_2013_NO04 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:NO04;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "772813"^^xsd:decimal;
     euwaste:attrWastePerCapita "298.83"^^xsd:decimal;
     euwaste:attrEnergyRecovery "125.5"^^xsd:decimal;
     euwaste:attrRecycling "83.61"^^xsd:decimal.
@@ -14308,6 +15273,7 @@ euwaste:obs_2013_NO05 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:NO05;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "896503"^^xsd:decimal;
     euwaste:attrWastePerCapita "320.25"^^xsd:decimal;
     euwaste:attrEnergyRecovery "172.85"^^xsd:decimal;
     euwaste:attrRecycling "100.82"^^xsd:decimal.
@@ -14316,6 +15282,7 @@ euwaste:obs_2013_NO06 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:NO06;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "454596"^^xsd:decimal;
     euwaste:attrWastePerCapita "158.77"^^xsd:decimal;
     euwaste:attrEnergyRecovery "78.23"^^xsd:decimal;
     euwaste:attrRecycling "50.91"^^xsd:decimal.
@@ -14324,9 +15291,734 @@ euwaste:obs_2013_NO07 a qb:Observation;
     qb:dataSet euwaste:dataset;
     euwaste:refArea nuts:NO07;
     euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "484647"^^xsd:decimal;
     euwaste:attrWastePerCapita "168.1"^^xsd:decimal;
     euwaste:attrEnergyRecovery "85.71"^^xsd:decimal;
     euwaste:attrRecycling "41.21"^^xsd:decimal.
+
+euwaste:obs_2013_PL11 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PL11;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2471620"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "44.76"^^xsd:decimal;
+    euwaste:attrRecycling "49.67"^^xsd:decimal.
+
+euwaste:obs_2013_PL12 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PL12;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "5341484"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "122.28"^^xsd:decimal;
+    euwaste:attrRecycling "184.95"^^xsd:decimal.
+
+euwaste:obs_2013_PL21 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PL21;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3339803"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "34.79"^^xsd:decimal;
+    euwaste:attrRecycling "116.75"^^xsd:decimal.
+
+euwaste:obs_2013_PL22 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PL22;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "4510528"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "11.73"^^xsd:decimal;
+    euwaste:attrRecycling "233.29"^^xsd:decimal.
+
+euwaste:obs_2013_PL31 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PL31;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2112787"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "46.28"^^xsd:decimal;
+    euwaste:attrRecycling "40.61"^^xsd:decimal.
+
+euwaste:obs_2013_PL32 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PL32;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2084722"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "15.46"^^xsd:decimal;
+    euwaste:attrRecycling "98.32"^^xsd:decimal.
+
+euwaste:obs_2013_PL33 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PL33;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1237518"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "0.14"^^xsd:decimal;
+    euwaste:attrRecycling "7.21"^^xsd:decimal.
+
+euwaste:obs_2013_PL34 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PL34;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1156947"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "7.73"^^xsd:decimal;
+    euwaste:attrRecycling "10.68"^^xsd:decimal.
+
+euwaste:obs_2013_PL41 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PL41;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3457473"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "20.59"^^xsd:decimal;
+    euwaste:attrRecycling "242.2"^^xsd:decimal.
+
+euwaste:obs_2013_PL42 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PL42;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1681246"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "26.65"^^xsd:decimal;
+    euwaste:attrRecycling "98.95"^^xsd:decimal.
+
+euwaste:obs_2013_PL43 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PL43;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1004892"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "4.91"^^xsd:decimal;
+    euwaste:attrRecycling "66.05"^^xsd:decimal.
+
+euwaste:obs_2013_PL51 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PL51;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2866218"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "105.38"^^xsd:decimal;
+    euwaste:attrRecycling "136.32"^^xsd:decimal.
+
+euwaste:obs_2013_PL52 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PL52;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "950710"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "39.38"^^xsd:decimal;
+    euwaste:attrRecycling "18.48"^^xsd:decimal.
+
+euwaste:obs_2013_PL61 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PL61;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2060575"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "7.17"^^xsd:decimal;
+    euwaste:attrRecycling "53.86"^^xsd:decimal.
+
+euwaste:obs_2013_PL62 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PL62;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1410641"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "25.05"^^xsd:decimal;
+    euwaste:attrRecycling "55.83"^^xsd:decimal.
+
+euwaste:obs_2013_PL63 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PL63;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2285800"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "50.66"^^xsd:decimal;
+    euwaste:attrRecycling "85.42"^^xsd:decimal.
+
+euwaste:obs_2013_PT11 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PT11;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3584575"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "369.852"^^xsd:decimal;
+    euwaste:attrRecycling "153.931"^^xsd:decimal.
+
+euwaste:obs_2013_PT15 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PT15;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "441469"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "0"^^xsd:decimal;
+    euwaste:attrRecycling "62.998"^^xsd:decimal.
+
+euwaste:obs_2013_PT16 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PT16;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2243934"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "7.346"^^xsd:decimal;
+    euwaste:attrRecycling "127.778"^^xsd:decimal.
+
+euwaste:obs_2013_PT17 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PT17;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2821349"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "614.597"^^xsd:decimal;
+    euwaste:attrRecycling "161.29"^^xsd:decimal.
+
+euwaste:obs_2013_PT18 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PT18;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "718087"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "1.457"^^xsd:decimal;
+    euwaste:attrRecycling "63.049"^^xsd:decimal.
+
+euwaste:obs_2013_PT20 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PT20;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "245283"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "0.006"^^xsd:decimal;
+    euwaste:attrRecycling "16.183"^^xsd:decimal.
+
+euwaste:obs_2013_PT30 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:PT30;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "254876"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "97.365"^^xsd:decimal;
+    euwaste:attrRecycling "8.892"^^xsd:decimal.
+
+euwaste:obs_2013_RO11 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:RO11;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2568730"^^xsd:decimal.
+
+euwaste:obs_2013_RO12 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:RO12;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2332935"^^xsd:decimal.
+
+euwaste:obs_2013_RO21 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:RO21;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3239612"^^xsd:decimal.
+
+euwaste:obs_2013_RO22 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:RO22;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2446734"^^xsd:decimal.
+
+euwaste:obs_2013_RO31 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:RO31;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3003349"^^xsd:decimal.
+
+euwaste:obs_2013_RO32 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:RO32;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2287347"^^xsd:decimal.
+
+euwaste:obs_2013_RO41 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:RO41;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1973140"^^xsd:decimal.
+
+euwaste:obs_2013_RO42 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:RO42;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1792503"^^xsd:decimal.
+
+euwaste:obs_2013_SE11 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:SE11;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2269060"^^xsd:decimal.
+
+euwaste:obs_2013_SE12 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:SE12;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1664145"^^xsd:decimal.
+
+euwaste:obs_2013_SE21 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:SE21;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "847667"^^xsd:decimal.
+
+euwaste:obs_2013_SE22 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:SE22;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1483018"^^xsd:decimal.
+
+euwaste:obs_2013_SE23 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:SE23;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1992116"^^xsd:decimal.
+
+euwaste:obs_2013_SE31 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:SE31;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "848451"^^xsd:decimal.
+
+euwaste:obs_2013_SE32 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:SE32;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "374245"^^xsd:decimal.
+
+euwaste:obs_2013_SE33 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:SE33;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "516451"^^xsd:decimal.
+
+euwaste:obs_2013_SI03 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:SI03;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1091159"^^xsd:decimal.
+
+euwaste:obs_2013_SI04 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:SI04;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "974736"^^xsd:decimal.
+
+euwaste:obs_2013_SK01 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:SK01;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "641892"^^xsd:decimal;
+    euwaste:attrWastePerCapita "189.96"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "107.65"^^xsd:decimal;
+    euwaste:attrRecycling "5.6"^^xsd:decimal.
+
+euwaste:obs_2013_SK02 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:SK02;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1830751"^^xsd:decimal;
+    euwaste:attrWastePerCapita "517.85"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "1.8"^^xsd:decimal;
+    euwaste:attrRecycling "18.79"^^xsd:decimal.
+
+euwaste:obs_2013_SK03 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:SK03;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1342287"^^xsd:decimal;
+    euwaste:attrWastePerCapita "298.25"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "0.07"^^xsd:decimal;
+    euwaste:attrRecycling "17"^^xsd:decimal.
+
+euwaste:obs_2013_SK04 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:SK04;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1620413"^^xsd:decimal;
+    euwaste:attrWastePerCapita "329.98"^^xsd:decimal;
+    euwaste:attrEnergyRecovery "64.12"^^xsd:decimal;
+    euwaste:attrRecycling "15.23"^^xsd:decimal.
+
+euwaste:obs_2013_TR10 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TR10;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "14804116"^^xsd:decimal.
+
+euwaste:obs_2013_TR21 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TR21;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1726260"^^xsd:decimal.
+
+euwaste:obs_2013_TR22 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TR22;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1715969"^^xsd:decimal.
+
+euwaste:obs_2013_TR31 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TR31;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "4223545"^^xsd:decimal.
+
+euwaste:obs_2013_TR32 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TR32;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2997720"^^xsd:decimal.
+
+euwaste:obs_2013_TR33 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TR33;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3043846"^^xsd:decimal.
+
+euwaste:obs_2013_TR41 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TR41;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3964535"^^xsd:decimal.
+
+euwaste:obs_2013_TR42 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TR42;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3719652"^^xsd:decimal.
+
+euwaste:obs_2013_TR51 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TR51;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "5346518"^^xsd:decimal.
+
+euwaste:obs_2013_TR52 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TR52;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2406913"^^xsd:decimal.
+
+euwaste:obs_2013_TR61 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TR61;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3017280"^^xsd:decimal.
+
+euwaste:obs_2013_TR62 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TR62;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3975522"^^xsd:decimal.
+
+euwaste:obs_2013_TR63 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TR63;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3189974"^^xsd:decimal.
+
+euwaste:obs_2013_TR71 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TR71;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1546995"^^xsd:decimal.
+
+euwaste:obs_2013_TR72 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TR72;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2401245"^^xsd:decimal.
+
+euwaste:obs_2013_TR81 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TR81;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1032260"^^xsd:decimal.
+
+euwaste:obs_2013_TR82 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TR82;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "766303"^^xsd:decimal.
+
+euwaste:obs_2013_TR83 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TR83;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2752803"^^xsd:decimal.
+
+euwaste:obs_2013_TR90 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TR90;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2645584"^^xsd:decimal.
+
+euwaste:obs_2013_TRA1 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TRA1;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1078207"^^xsd:decimal.
+
+euwaste:obs_2013_TRA2 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TRA2;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1123161"^^xsd:decimal.
+
+euwaste:obs_2013_TRB1 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TRB1;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1711847"^^xsd:decimal.
+
+euwaste:obs_2013_TRB2 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TRB2;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2115729"^^xsd:decimal.
+
+euwaste:obs_2013_TRC1 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TRC1;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2715553"^^xsd:decimal.
+
+euwaste:obs_2013_TRC2 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TRC2;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "3613746"^^xsd:decimal.
+
+euwaste:obs_2013_TRC3 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:TRC3;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2179588"^^xsd:decimal.
+
+euwaste:obs_2013_UKC1 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKC1;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1193162"^^xsd:decimal.
+
+euwaste:obs_2013_UKC2 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKC2;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1445849"^^xsd:decimal.
+
+euwaste:obs_2013_UKD1 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKD1;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "496734"^^xsd:decimal.
+
+euwaste:obs_2013_UKD3 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKD3;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2783397"^^xsd:decimal.
+
+euwaste:obs_2013_UKD4 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKD4;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1482523"^^xsd:decimal.
+
+euwaste:obs_2013_UKD6 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKD6;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "921769"^^xsd:decimal.
+
+euwaste:obs_2013_UKD7 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKD7;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1530512"^^xsd:decimal.
+
+euwaste:obs_2013_UKE1 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKE1;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "928909"^^xsd:decimal.
+
+euwaste:obs_2013_UKE2 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKE2;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "813302"^^xsd:decimal.
+
+euwaste:obs_2013_UKE3 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKE3;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1385564"^^xsd:decimal.
+
+euwaste:obs_2013_UKE4 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKE4;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2302229"^^xsd:decimal.
+
+euwaste:obs_2013_UKF1 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKF1;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2179995"^^xsd:decimal.
+
+euwaste:obs_2013_UKF2 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKF2;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1802808"^^xsd:decimal.
+
+euwaste:obs_2013_UKF3 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKF3;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "744408"^^xsd:decimal.
+
+euwaste:obs_2013_UKG1 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKG1;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1329762"^^xsd:decimal.
+
+euwaste:obs_2013_UKG2 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKG2;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1606240"^^xsd:decimal.
+
+euwaste:obs_2013_UKG3 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKG3;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2870360"^^xsd:decimal.
+
+euwaste:obs_2013_UKH1 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKH1;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2492091"^^xsd:decimal.
+
+euwaste:obs_2013_UKH2 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKH2;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1851205"^^xsd:decimal.
+
+euwaste:obs_2013_UKH3 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKH3;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1808147"^^xsd:decimal.
+
+euwaste:obs_2013_UKI3 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKI3;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1166297"^^xsd:decimal.
+
+euwaste:obs_2013_UKI4 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKI4;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2390560"^^xsd:decimal.
+
+euwaste:obs_2013_UKI5 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKI5;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1905258"^^xsd:decimal.
+
+euwaste:obs_2013_UKI6 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKI6;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1305540"^^xsd:decimal.
+
+euwaste:obs_2013_UKI7 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKI7;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2100411"^^xsd:decimal.
+
+euwaste:obs_2013_UKJ1 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKJ1;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2389165"^^xsd:decimal.
+
+euwaste:obs_2013_UKJ2 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKJ2;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2868537"^^xsd:decimal.
+
+euwaste:obs_2013_UKJ3 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKJ3;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1972679"^^xsd:decimal.
+
+euwaste:obs_2013_UKJ4 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKJ4;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1826320"^^xsd:decimal.
+
+euwaste:obs_2013_UKK1 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKK1;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2467531"^^xsd:decimal.
+
+euwaste:obs_2013_UKK2 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKK2;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1323552"^^xsd:decimal.
+
+euwaste:obs_2013_UKK3 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKK3;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "557858"^^xsd:decimal.
+
+euwaste:obs_2013_UKK4 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKK4;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1177705"^^xsd:decimal.
+
+euwaste:obs_2013_UKL1 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKL1;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1956886"^^xsd:decimal.
+
+euwaste:obs_2013_UKL2 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKL2;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1155919"^^xsd:decimal.
+
+euwaste:obs_2013_UKM2 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKM2;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2085169"^^xsd:decimal.
+
+euwaste:obs_2013_UKM3 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKM3;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "2349308"^^xsd:decimal.
+
+euwaste:obs_2013_UKM5 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKM5;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "496536"^^xsd:decimal.
+
+euwaste:obs_2013_UKM6 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKM6;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "469148"^^xsd:decimal.
+
+euwaste:obs_2013_UKN0 a qb:Observation;
+    qb:dataSet euwaste:dataset;
+    euwaste:refArea nuts:UKN0;
+    euwaste:refPeriod "2013"^^xsd:gYear;
+    euwaste:attrPopulation "1875228"^^xsd:decimal.
 
 euwaste:obs_2013_SI01 a qb:Observation;
     qb:dataSet euwaste:dataset;
@@ -14343,451 +16035,6 @@ euwaste:obs_2013_SI02 a qb:Observation;
     euwaste:attrWastePerCapita "286.6"^^xsd:decimal;
     euwaste:attrEnergyRecovery "0.86"^^xsd:decimal;
     euwaste:attrRecycling "163.44"^^xsd:decimal.
-
-euwaste:obs_2013_SK01 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:SK01;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrWastePerCapita "189.96"^^xsd:decimal;
-    euwaste:attrEnergyRecovery "107.65"^^xsd:decimal;
-    euwaste:attrRecycling "5.6"^^xsd:decimal.
-
-euwaste:obs_2013_SK02 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:SK02;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrWastePerCapita "517.85"^^xsd:decimal;
-    euwaste:attrEnergyRecovery "1.8"^^xsd:decimal;
-    euwaste:attrRecycling "18.79"^^xsd:decimal.
-
-euwaste:obs_2013_SK03 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:SK03;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrWastePerCapita "298.25"^^xsd:decimal;
-    euwaste:attrEnergyRecovery "0.07"^^xsd:decimal;
-    euwaste:attrRecycling "17"^^xsd:decimal.
-
-euwaste:obs_2013_SK04 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:SK04;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrWastePerCapita "329.98"^^xsd:decimal;
-    euwaste:attrEnergyRecovery "64.12"^^xsd:decimal;
-    euwaste:attrRecycling "15.23"^^xsd:decimal.
-
-euwaste:obs_2013_BE10 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:BE10;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "315.4"^^xsd:decimal;
-    euwaste:attrRecycling "100.45"^^xsd:decimal.
-
-euwaste:obs_2013_BE21 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:BE21;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "281.26"^^xsd:decimal;
-    euwaste:attrRecycling "263.78"^^xsd:decimal.
-
-euwaste:obs_2013_BE22 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:BE22;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "118.97"^^xsd:decimal;
-    euwaste:attrRecycling "144.82"^^xsd:decimal.
-
-euwaste:obs_2013_BE23 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:BE23;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "251.35"^^xsd:decimal;
-    euwaste:attrRecycling "249.1"^^xsd:decimal.
-
-euwaste:obs_2013_BE24 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:BE24;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "172.29"^^xsd:decimal;
-    euwaste:attrRecycling "165.24"^^xsd:decimal.
-
-euwaste:obs_2013_BE25 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:BE25;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "224.02"^^xsd:decimal;
-    euwaste:attrRecycling "221.95"^^xsd:decimal.
-
-euwaste:obs_2013_BE31 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:BE31;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "86.37"^^xsd:decimal;
-    euwaste:attrRecycling "49.68"^^xsd:decimal.
-
-euwaste:obs_2013_BE32 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:BE32;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "255.22"^^xsd:decimal;
-    euwaste:attrRecycling "135.91"^^xsd:decimal.
-
-euwaste:obs_2013_BE33 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:BE33;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "222.68"^^xsd:decimal;
-    euwaste:attrRecycling "118.65"^^xsd:decimal.
-
-euwaste:obs_2013_BE34 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:BE34;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "59.73"^^xsd:decimal;
-    euwaste:attrRecycling "38.43"^^xsd:decimal.
-
-euwaste:obs_2013_BE35 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:BE35;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "88.82"^^xsd:decimal;
-    euwaste:attrRecycling "61.98"^^xsd:decimal.
-
-euwaste:obs_2013_CY00 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:CY00;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "0"^^xsd:decimal;
-    euwaste:attrRecycling "66"^^xsd:decimal.
-
-euwaste:obs_2013_EE00 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:EE00;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "214"^^xsd:decimal;
-    euwaste:attrRecycling "47"^^xsd:decimal.
-
-euwaste:obs_2013_HR03 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:HR03;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "0"^^xsd:decimal;
-    euwaste:attrRecycling "97.85"^^xsd:decimal.
-
-euwaste:obs_2013_HR04 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:HR04;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "0.7547"^^xsd:decimal;
-    euwaste:attrRecycling "130.07"^^xsd:decimal.
-
-euwaste:obs_2013_ITC1 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:ITC1;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "185.04"^^xsd:decimal.
-
-euwaste:obs_2013_ITC4 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:ITC4;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "2220.49"^^xsd:decimal.
-
-euwaste:obs_2013_ITF2 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:ITF2;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "91.35"^^xsd:decimal.
-
-euwaste:obs_2013_ITF3 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:ITF3;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "672.94"^^xsd:decimal.
-
-euwaste:obs_2013_ITF4 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:ITF4;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "107.39"^^xsd:decimal.
-
-euwaste:obs_2013_ITF5 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:ITF5;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "30.34"^^xsd:decimal.
-
-euwaste:obs_2013_ITF6 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:ITF6;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "27.63"^^xsd:decimal.
-
-euwaste:obs_2013_ITG2 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:ITG2;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "127.63"^^xsd:decimal.
-
-euwaste:obs_2013_ITH1 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:ITH1;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "80.81"^^xsd:decimal.
-
-euwaste:obs_2013_ITH3 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:ITH3;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "354.15"^^xsd:decimal.
-
-euwaste:obs_2013_ITH4 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:ITH4;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "160.22"^^xsd:decimal.
-
-euwaste:obs_2013_ITH5 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:ITH5;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "991.57"^^xsd:decimal.
-
-euwaste:obs_2013_ITI1 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:ITI1;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "300.94"^^xsd:decimal.
-
-euwaste:obs_2013_ITI3 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:ITI3;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "2.17"^^xsd:decimal.
-
-euwaste:obs_2013_ITI4 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:ITI4;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "386.37"^^xsd:decimal.
-
-euwaste:obs_2013_LU00 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:LU00;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "123"^^xsd:decimal;
-    euwaste:attrRecycling "99"^^xsd:decimal.
-
-euwaste:obs_2013_LV00 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:LV00;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "0"^^xsd:decimal;
-    euwaste:attrRecycling "66"^^xsd:decimal.
-
-euwaste:obs_2013_MT00 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:MT00;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "1"^^xsd:decimal;
-    euwaste:attrRecycling "13"^^xsd:decimal.
-
-euwaste:obs_2013_PL11 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PL11;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "44.76"^^xsd:decimal;
-    euwaste:attrRecycling "49.67"^^xsd:decimal.
-
-euwaste:obs_2013_PL12 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PL12;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "122.28"^^xsd:decimal;
-    euwaste:attrRecycling "184.95"^^xsd:decimal.
-
-euwaste:obs_2013_PL21 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PL21;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "34.79"^^xsd:decimal;
-    euwaste:attrRecycling "116.75"^^xsd:decimal.
-
-euwaste:obs_2013_PL22 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PL22;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "11.73"^^xsd:decimal;
-    euwaste:attrRecycling "233.29"^^xsd:decimal.
-
-euwaste:obs_2013_PL31 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PL31;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "46.28"^^xsd:decimal;
-    euwaste:attrRecycling "40.61"^^xsd:decimal.
-
-euwaste:obs_2013_PL32 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PL32;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "15.46"^^xsd:decimal;
-    euwaste:attrRecycling "98.32"^^xsd:decimal.
-
-euwaste:obs_2013_PL33 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PL33;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "0.14"^^xsd:decimal;
-    euwaste:attrRecycling "7.21"^^xsd:decimal.
-
-euwaste:obs_2013_PL34 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PL34;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "7.73"^^xsd:decimal;
-    euwaste:attrRecycling "10.68"^^xsd:decimal.
-
-euwaste:obs_2013_PL41 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PL41;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "20.59"^^xsd:decimal;
-    euwaste:attrRecycling "242.2"^^xsd:decimal.
-
-euwaste:obs_2013_PL42 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PL42;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "26.65"^^xsd:decimal;
-    euwaste:attrRecycling "98.95"^^xsd:decimal.
-
-euwaste:obs_2013_PL43 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PL43;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "4.91"^^xsd:decimal;
-    euwaste:attrRecycling "66.05"^^xsd:decimal.
-
-euwaste:obs_2013_PL51 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PL51;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "105.38"^^xsd:decimal;
-    euwaste:attrRecycling "136.32"^^xsd:decimal.
-
-euwaste:obs_2013_PL52 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PL52;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "39.38"^^xsd:decimal;
-    euwaste:attrRecycling "18.48"^^xsd:decimal.
-
-euwaste:obs_2013_PL61 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PL61;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "7.17"^^xsd:decimal;
-    euwaste:attrRecycling "53.86"^^xsd:decimal.
-
-euwaste:obs_2013_PL62 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PL62;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "25.05"^^xsd:decimal;
-    euwaste:attrRecycling "55.83"^^xsd:decimal.
-
-euwaste:obs_2013_PL63 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PL63;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "50.66"^^xsd:decimal;
-    euwaste:attrRecycling "85.42"^^xsd:decimal.
-
-euwaste:obs_2013_PT11 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PT11;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "369.852"^^xsd:decimal;
-    euwaste:attrRecycling "153.931"^^xsd:decimal.
-
-euwaste:obs_2013_PT15 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PT15;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "0"^^xsd:decimal;
-    euwaste:attrRecycling "62.998"^^xsd:decimal.
-
-euwaste:obs_2013_PT16 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PT16;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "7.346"^^xsd:decimal;
-    euwaste:attrRecycling "127.778"^^xsd:decimal.
-
-euwaste:obs_2013_PT17 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PT17;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "614.597"^^xsd:decimal;
-    euwaste:attrRecycling "161.29"^^xsd:decimal.
-
-euwaste:obs_2013_PT18 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PT18;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "1.457"^^xsd:decimal;
-    euwaste:attrRecycling "63.049"^^xsd:decimal.
-
-euwaste:obs_2013_PT20 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PT20;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "0.006"^^xsd:decimal;
-    euwaste:attrRecycling "16.183"^^xsd:decimal.
-
-euwaste:obs_2013_PT30 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:PT30;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrEnergyRecovery "97.365"^^xsd:decimal;
-    euwaste:attrRecycling "8.892"^^xsd:decimal.
-
-euwaste:obs_2013_BG31 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:BG31;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrRecycling "17"^^xsd:decimal.
-
-euwaste:obs_2013_BG32 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:BG32;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrRecycling "41"^^xsd:decimal.
-
-euwaste:obs_2013_BG33 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:BG33;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrRecycling "59"^^xsd:decimal.
-
-euwaste:obs_2013_BG34 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:BG34;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrRecycling "19"^^xsd:decimal.
-
-euwaste:obs_2013_BG41 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:BG41;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrRecycling "96"^^xsd:decimal.
-
-euwaste:obs_2013_BG42 a qb:Observation;
-    qb:dataSet euwaste:dataset;
-    euwaste:refArea nuts:BG42;
-    euwaste:refPeriod "2013"^^xsd:gYear;
-    euwaste:attrRecycling "39"^^xsd:decimal.
 
 euwaste:obs_2014_AT a qb:Observation;
     qb:dataSet euwaste:dataset;

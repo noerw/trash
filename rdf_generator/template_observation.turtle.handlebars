@@ -39,6 +39,14 @@ euwaste:dataset a qb:DataSet, dcat:Dataset;
     rdfs:seeAlso <https://github.com/noerw/trash>.
 
 # our attributes: waste generation per capita, recycling amount, energy recovery per capita
+euwaste:attrPopulation a rdf:Property, qb:MeasureProperty;
+    rdfs:label "Population Count"@en;
+    rdfs:subPropertyOf sdmx-measure:obsValue;
+    rdfs:range xsd:decimal, xsd:integer;
+    sdmx-attribute:unitMeasure "count";
+    rdfs:sameAs <http://www.geonames.org/ontology#population>;
+    rdfs:seeAlso <https://www.wikidata.org/wiki/Property:P1082>.
+
 euwaste:attrWastePerCapita a rdf:Property, qb:MeasureProperty;
     rdfs:label "Solid Waste per Capita (kg)"@en;
     rdfs:subPropertyOf sdmx-measure:obsValue;

@@ -176,6 +176,10 @@ const TEMPLATES = {
 
 // attribute mapping for the input phenomenon names
 const PHENOMENONS: PhenomenonDefinition = {
+  'population': {
+    uri: 'euwaste:attrPopulation',
+    allowedUnits: ['count'],
+  },
   'GEN_HH': {
     uri: 'euwaste:attrWastePerCapita',
     allowedUnits: ['KG_HAB', 'THS_T'],
