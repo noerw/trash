@@ -87,9 +87,9 @@ async function initData() {
 
     // replace NUTS2 placeholder with actual chorolpleth layer
     const layer2WithData = await prepareNutsLevel(geodataNuts2);
-    layerGroup.remove(layer2)
+    layerGroup.removeLayer(layer2)
     layer2 = layer2WithData
-    layer2.addToMap(mymap)
+    if (mymap.getZoom() > 6) layer2.addTo(layerGroup)
 }
 
 let legend = L.control();
@@ -139,7 +139,7 @@ async function prepareNutsLevel (url) {
     const nutsCodes = geojson.features.map(feat => feat.properties.NUTS_ID);
     const wasteData = await fetchWasteData(nutsCodes);
     for (const feat of geojson.features) {
-        feat.properties['wasteGeneration'] = wasteData[feat.properties.NUTS_ID]
+        feat.properties['wasteGeneration'] = wasteData[feat.id]
     }
 
     return buildChoroplethLayer(geojson);
@@ -151,9 +151,8 @@ async function fetchWasteData (nutsCodes) {
     const wasteGeneration = {};
     for (const nutsCode of nutsCodes) {
         const json = await queryLatestWasteGenForNuts(nutsCode)
-
         if (json.results.bindings.length > 1) {
-            const id = json.results.bindings[0].obs.value.substring(json.results.bindings[0].obs.value.length - 2);
+            const id = json.results.bindings[0].obs.value.split('_').pop();
             const value = json.results.bindings[0].wasteGeneration.value
             wasteGeneration[id] = Number.parseFloat(value);
         }
@@ -191,8 +190,10 @@ function onEachFeature (feature, layer) {
             }).bringToFront();
         },
         click: async (event) => {
-            const nut = event.sourceTarget.feature.id;
-            document.getElementById('dataTitle').innerHTML = nut;
+            var nut = event.sourceTarget.feature.id;
+            var name = event.sourceTarget.feature.properties.NUTS_NAME.toLowerCase();
+            name = name.charAt(0).toUpperCase() + name.slice(1);
+            document.getElementById('dataTitle').innerHTML = name;
             openNav();
 
             const json = await queryLatestWasteGenForNuts(nut)
