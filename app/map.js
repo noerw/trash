@@ -15,12 +15,26 @@ initData();
 
 //Build query to get max amount of waste for a given array of nut codes
 //Order desc to make the latest data always available at index 0
-async function queryLatestWasteGenForNuts (nutsCode) {
+async function queryLatestWasteGenForNuts0 (nutsCode) {
     const query = `
       SELECT DISTINCT * WHERE {
         ?obs a qb:Observation.
         ?obs euwaste:refArea nuts:${nutsCode}.
         ?obs euwaste:attrWastePerCapita ?wasteGeneration.
+        ?obs euwaste:refPeriod ?year.
+      } ORDER BY DESC(?year) LIMIT 20
+    `;
+
+    return queryTripleStore(query);
+}
+
+async function queryLatestWasteGenForNuts2 (nutsCode) {
+    const query = `
+      SELECT DISTINCT * WHERE {
+        ?obs a qb:Observation.
+        ?obs euwaste:refArea nuts:${nutsCode}.
+        ?obs euwaste:attrWastePerCapita ?wasteGeneration.
+        ?obs euwaste:attrPopulation ?population.
         ?obs euwaste:refPeriod ?year.
       } ORDER BY DESC(?year) LIMIT 20
     `;
@@ -61,7 +75,7 @@ async function queryTripleStore (query) {
 
 async function initData() {
     // add NUTS0 choropleth to map
-    const layer0 = await prepareNutsLevel(geodataNuts0);
+    const layer0 = await prepareNutsLevel(geodataNuts0,queryLatestWasteGenForNuts0 );
     addChoroplethToMap(layer0)
 
     // create placeholder layer for NUTS2, b/c loading the RDF data for NUTS2 takes a while
@@ -86,7 +100,7 @@ async function initData() {
     });
 
     // replace NUTS2 placeholder with actual chorolpleth layer
-    const layer2WithData = await prepareNutsLevel(geodataNuts2);
+    const layer2WithData = await prepareNutsLevel(geodataNuts2, queryLatestWasteGenForNuts2);
     layerGroup.removeLayer(layer2)
     layer2 = layer2WithData
     if (mymap.getZoom() > 6) layer2.addTo(layerGroup)
@@ -129,7 +143,7 @@ function buildLegend(layer){
     legend.addTo(mymap)
 }
 
-async function prepareNutsLevel (url) {
+async function prepareNutsLevel (url, queryFunction) {
     // fetch geojson
     // const req = await fetch(url)
     // const geojson = await req.json()
@@ -137,7 +151,7 @@ async function prepareNutsLevel (url) {
 
     // apply RDF data to geojson
     const nutsCodes = geojson.features.map(feat => feat.properties.NUTS_ID);
-    const wasteData = await fetchWasteData(nutsCodes);
+    const wasteData = await fetchWasteData(nutsCodes, queryFunction);
     for (const feat of geojson.features) {
         feat.properties['wasteGeneration'] = wasteData[feat.id]
     }
@@ -147,10 +161,10 @@ async function prepareNutsLevel (url) {
 
 //Asyc fetch latest value for waste for every nut code in set of codes.
 //Push all values into an array and return max value of all.
-async function fetchWasteData (nutsCodes) {
+async function fetchWasteData (nutsCodes, queryFunction) {
     const wasteGeneration = {};
     for (const nutsCode of nutsCodes) {
-        const json = await queryLatestWasteGenForNuts(nutsCode)
+        const json = await queryFunction(nutsCode)
         if (json.results.bindings.length > 1) {
             const id = json.results.bindings[0].obs.value.split('_').pop();
             const value = json.results.bindings[0].wasteGeneration.value
@@ -196,7 +210,7 @@ function onEachFeature (feature, layer) {
             document.getElementById('dataTitle').innerHTML = name;
             openNav();
 
-            const json = await queryLatestWasteGenForNuts(nut)
+            const json = await queryLatestWasteGenForNuts0(nut)
             setLineChart(json.results.bindings);
 
             const pieData = await queryLatestForNuts(nut);
