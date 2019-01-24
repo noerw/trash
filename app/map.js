@@ -130,8 +130,8 @@ function buildLegend(layer){
       var labels = []
 
       // Add min & max
-      div.innerHTML = 'Waste Generation in kg/Person<div class="labels"><div class="min">' + limits[0] + '</div> \
-              <div class="max">' + limits[limits.length - 1] + '</div></div>'
+      div.innerHTML = 'Waste Generation in kg/Person<div class="labels"><div class="min">' + Math.floor(limits[0]) + '</div> \
+              <div class="max">' + Math.floor(limits[limits.length - 1]) + '</div></div>'
 
       limits.forEach(function (limit, index) {
         labels.push('<li style="background-color: ' + colors[index] + '"></li>')
@@ -153,7 +153,12 @@ async function prepareNutsLevel (url, queryFunction) {
     const nutsCodes = geojson.features.map(feat => feat.properties.NUTS_ID);
     const wasteData = await fetchWasteData(nutsCodes, queryFunction);
     for (const feat of geojson.features) {
-        feat.properties['wasteGeneration'] = wasteData[feat.id]
+        console.log(wasteData[feat.id])
+        if(wasteData[feat.id] == undefined) continue;
+        const { population, wasteGeneration } = wasteData[feat.id]
+        feat.properties['wasteGeneration'] = (wasteGeneration / population)
+        if (population !== 1) //Back to kg/capita
+            feat.properties['wasteGeneration'] *= 1e6
     }
 
     return buildChoroplethLayer(geojson);
@@ -168,7 +173,14 @@ async function fetchWasteData (nutsCodes, queryFunction) {
         if (json.results.bindings.length > 1) {
             const id = json.results.bindings[0].obs.value.split('_').pop();
             const value = json.results.bindings[0].wasteGeneration.value
-            wasteGeneration[id] = Number.parseFloat(value);
+            let pop = 1;
+            if(json.results.bindings[0].population){
+                pop = json.results.bindings[0].population.value
+            }
+            wasteGeneration[id] = {
+                wasteGeneration: Number.parseFloat(value),
+                population: Number.parseFloat(pop)
+            }
         }
     }
     return wasteGeneration;
