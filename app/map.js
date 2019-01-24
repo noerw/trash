@@ -109,9 +109,6 @@ function loadNUTS() {
 }
 
 
-
-
-
 //#################################
 //#### Map Stuff and coloring #####
 //#################################
@@ -128,16 +125,6 @@ async function onclick(e) {
     setChart(json.results.bindings);
 
 }
-
-
-
-
-
-
-
-
-
-
 
 function onEachFeature(feature, layer) {
     layer.on({
