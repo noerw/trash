@@ -1,4 +1,6 @@
-var ctx = document.getElementById("wasteOverTime").getContext('2d');
+var lineChart = document.getElementById("wasteOverTime").getContext('2d');
+
+var pieChart = document.getElementById("wastePrc").getContext('2d');
 
 var labels = [];
 var datas = [];
@@ -11,7 +13,7 @@ var options = {
 
 
 
-function setChart(input){
+function setLineChart(input){
     labels = [];
     datas = [];
     data = {    
@@ -34,9 +36,25 @@ function setChart(input){
         datas.push(input[i].wasteGeneration.value);
     }
 
-    var wasteOverTime = new Chart(ctx, {
+    var wasteOverTime = new Chart(lineChart, {
         type: 'line',
         data: data,
         options: options
     });
 }
+
+function setPrcChart(input){
+    labels = [];
+    datas = [];
+    data = data;
+
+    var PieChart = new Chart(pieChart,{
+        type: 'pie',
+        data: data,
+        options: options
+    });
+}
+
+
+
+

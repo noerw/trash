@@ -122,7 +122,9 @@ async function onclick(e) {
     const response = await fetch(address + encodeURIComponent(query));
     const json = await response.json();
 
-    setChart(json.results.bindings);
+    setLineChart(json.results.bindings);
+
+    setPrcChart(json.results.bindings);
 
 }
 
