@@ -130,7 +130,7 @@ function buildLegend(layer){
       var labels = []
 
       // Add min & max
-      div.innerHTML = 'Waste Generation in kg/Person<div class="labels"><div class="min">' + Math.floor(limits[0]) + '</div> \
+      div.innerHTML = 'Waste Generation in kg/Capita<div class="labels"><div class="min">' + Math.floor(limits[0]) + '</div> \
               <div class="max">' + Math.floor(limits[limits.length - 1]) + '</div></div>'
 
       limits.forEach(function (limit, index) {
@@ -153,7 +153,6 @@ async function prepareNutsLevel (url, queryFunction) {
     const nutsCodes = geojson.features.map(feat => feat.properties.NUTS_ID);
     const wasteData = await fetchWasteData(nutsCodes, queryFunction);
     for (const feat of geojson.features) {
-        console.log(wasteData[feat.id])
         if(wasteData[feat.id] == undefined) continue;
         const { population, wasteGeneration } = wasteData[feat.id]
         feat.properties['wasteGeneration'] = (wasteGeneration / population)
@@ -208,12 +207,14 @@ function onEachFeature (feature, layer) {
                 weight: 3,
                 color: '#666',
             }).bringToFront();
+            layer.bindPopup(event.sourceTarget.feature.id+":  "+event.sourceTarget.feature.properties.wasteGeneration + " Waste (kg/Capita)",{closeButton: false, offset: L.point(0, -20)});
         },
         mouseout: (event) => {
             event.target.setStyle({
                 weight: 1,
                 color: '#fff',
             }).bringToFront();
+            mymap.closePopup();
         },
         click: async (event) => {
             var nut = event.sourceTarget.feature.id;

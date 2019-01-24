@@ -13,31 +13,29 @@ var wasteOverTime;
 var PieChart;
 
 var options = {
-
     scales: {
         yAxes: [{
-          scaleLabel: {
-            display: true,
-            labelString: 'kg/Capita'
-          }
+            scaleLabel: {
+                display: true,
+                labelString: 'kg/Capita'
+            }
         }],
         xAxes: [{
             scaleLabel: {
-              display: true,
-              labelString: 'Year'
+                display: true,
+                labelString: 'Year'
             }
-          }]
-      },   
-    
+        }]
+    },
     responsive: false,
-    width:800,
-    height:800,
+    width: 800,
+    height: 800,
 };
 
-function setLineChart(input){
+function setLineChart(input) {
     labels = [];
     datas = [];
-    data = {    
+    data = {
         labels: labels,
         datasets: [
             {
@@ -51,17 +49,18 @@ function setLineChart(input){
                 pointHighlightStroke: "rgba(220,220,220,1)",
                 data: datas
             }
-        ]};
-        
-    for(i = input.length-1; i >= 0; i--){
+        ]
+    };
+
+    for (i = input.length - 1; i >= 0; i--) {
         labels.push(input[i].year.value);
         datas.push(input[i].wasteGeneration.value);
     }
 
-    if (wasteOverTime != undefined || wasteOverTime !=null) {
+    if (wasteOverTime != undefined || wasteOverTime != null) {
         wasteOverTime.destroy();
     }
-    
+
     wasteOverTime = new Chart(lineChart, {
         type: 'line',
         data: data,
@@ -69,12 +68,11 @@ function setLineChart(input){
     });
 }
 
-function setPrcChart(input){
-
+function setPrcChart(input) {
     console.log("newChart");
     pieLabels = [];
     pieData = [];
-    data2 = {    
+    data2 = {
         labels: pieLabels,
         datasets: [
             {
@@ -91,14 +89,12 @@ function setPrcChart(input){
         ]
     };
 
-
-    if(input  == null){
-
-        if (PieChart != undefined || PieChart !=null) {
+    if (input == null) {
+        if (PieChart != undefined || PieChart != null) {
             PieChart.destroy();
         }
 
-        PieChart = new Chart(pieChart,{
+        PieChart = new Chart(pieChart, {
             type: 'doughnut',
             data: [],
             options: pieOptions
@@ -106,68 +102,56 @@ function setPrcChart(input){
 
         pieOptions = {
             responsive: false,
-            width:800,
-            height:800,
+            width: 800,
+            height: 800,
             title: {
             }
         }
-        
-
-
         return;
-
-
-    }else{
-
+    } else {
         var pieOptions = {
             responsive: false,
-            width:800,
-            height:800,
+            width: 800,
+            height: 800,
             title: {
                 display: true,
                 text: 'Waste Distribution'
             },
             tooltips: {
                 callbacks: {
-                  label: function(tooltipItem, data) {
-                    var dataset = data.datasets[tooltipItem.datasetIndex];
-                    var currentValue = dataset.data[tooltipItem.index];
+                    label: function (tooltipItem, data) {
+                        var dataset = data.datasets[tooltipItem.datasetIndex];
+                        var currentValue = dataset.data[tooltipItem.index];
 
-                    var total = parseInt(dataset.data[0]) + parseInt(dataset.data[1]) + parseInt(dataset.data[2]);
-                    var percentage = Math.floor(((currentValue/total) * 100)+0.5);
-                    return " " + percentage + "%";
-                  }
+                        var total = parseInt(dataset.data[0]) + parseInt(dataset.data[1]) + parseInt(dataset.data[2]);
+                        var percentage = Math.floor(((currentValue / total) * 100) + 0.5);
+                        return " " + percentage + "%";
+                    }
                 }
-              } 
+            }
         }
-
         const energyRecovery = input.energyRecovery.value;
         const recycling = input.recycling.value;
-    
-    
+
         pieData.push(energyRecovery);
         pieData.push(recycling);
         pieData.push(input.wasteGeneration.value - energyRecovery - recycling);
-    
+
         pieLabels.push("Energy Recovery");
         pieLabels.push("Recycling");
         pieLabels.push("Waste");
 
-        if (PieChart != undefined || PieChart !=null) {
+        if (PieChart != undefined || PieChart != null) {
             PieChart.destroy();
         }
-        
-        PieChart = new Chart(pieChart,{
+
+        PieChart = new Chart(pieChart, {
             type: 'doughnut',
             data: data2,
             options: pieOptions
         });
 
     }
-
-
-
-
 }
 
 
