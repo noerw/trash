@@ -22,7 +22,7 @@ async function queryLatestWasteGenForNuts (nutsCode) {
         ?obs euwaste:refArea nuts:${nutsCode}.
         ?obs euwaste:attrWastePerCapita ?wasteGeneration.
         ?obs euwaste:refPeriod ?year.
-      } ORDER BY DESC(?year)
+      } ORDER BY DESC(?year) LIMIT 20
     `;
 
     return queryTripleStore(query);
@@ -57,8 +57,14 @@ async function initData() {
 
     const waste0 = await fetchWasteData(nut0Codes);
     maxWaste0 = waste0.maxWaste;
-    wasteArray0 = waste0.wasteArray;
+    wasteArray0 = waste0.wasteGeneration;
     console.log(waste0)
+
+    // apply fetched RDF data to geojson
+    for (const feat of nutsLevel0.features) {
+        feat.properties['wasteGeneration'] = waste0.wasteGeneration[feat.id]
+    }
+
 
     //same for nut2
     // const wast2 = await maxWaste(nut2Codes)
@@ -72,35 +78,42 @@ async function initData() {
 //Asyc fetch latest value for waste for every nut code in set of codes.
 //Push all values into an array and return max value of all.
 async function fetchWasteData (nutsCodes) {
-    const waste = [];
+    const wasteGeneration = {};
     for (const nutsCode of nutsCodes) {
         const json = await queryLatestWasteGenForNuts(nutsCode)
         console.log(json)
+
         if (json.results.bindings.length > 1) {
             const id = json.results.bindings[0].obs.value.substring(json.results.bindings[0].obs.value.length - 2);
             const value = json.results.bindings[0].wasteGeneration.value
-            waste.push({ nut: id, waste: value });
+            wasteGeneration[id] = Number.parseFloat(value);
         }
     }
-    const maxWaste = Math.max.apply(Math, waste.map(function (element) { return element.waste }))
-    return { maxWaste: maxWaste, wasteArray: waste };
+    const maxWaste = Math.max.apply(Math, Object.values(wasteGeneration))
+    return { maxWaste, wasteGeneration };
 }
 
 function loadNUTS() {
     if (mymap.getZoom() > 6) {
         layerGroup.clearLayers();
         geojson = L.geoJson(nutsLevel2, {
-            onEachFeature: onEachFeature,
+            onEachFeature,
             style: function (feature) {
                 console.log(feature)
             }
         }).addTo(layerGroup);
     } else {
-        layerGroup.clearLayers();
-        geojson = L.geoJson(nutsLevel0, {
-            onEachFeature: onEachFeature,
-            style: style
-        }).addTo(layerGroup);
+        geojson = L.choropleth(nutsLevel0, {
+            valueProperty: 'wasteGeneration', // geojson properties property
+            scale: ['yellow', 'red'], // chroma.js scale - include as many as you like
+            steps: 15,
+            mode: 'k', // q for quantile, e for equidistant, k for k-means
+            style: {
+                color: '#fff', // border color
+                weight: 2,
+                fillOpacity: 0.8
+            },
+        }).addTo(mymap)
     }
 }
 
@@ -152,7 +165,6 @@ mymap.on('zoomend', function (e) {
 });
 
 function zoom_based_layerchange() {
-    console.log(mymap.getZoom());
     loadNUTS();
 }
 
