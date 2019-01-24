@@ -7,6 +7,11 @@ var datas = [];
 var data = {
 
 };
+
+var wasteOverTime;
+
+var PieChart;
+
 var options = {
 
     scales: {
@@ -53,7 +58,11 @@ function setLineChart(input){
         datas.push(input[i].wasteGeneration.value);
     }
 
-    var wasteOverTime = new Chart(lineChart, {
+    if (wasteOverTime != undefined || wasteOverTime !=null) {
+        wasteOverTime.destroy();
+    }
+    
+    wasteOverTime = new Chart(lineChart, {
         type: 'line',
         data: data,
         options: options
@@ -61,6 +70,8 @@ function setLineChart(input){
 }
 
 function setPrcChart(input){
+
+    console.log("newChart");
     pieLabels = [];
     pieData = [];
     data2 = {    
@@ -82,8 +93,12 @@ function setPrcChart(input){
 
 
     if(input  == null){
-        console.log("test");
-        var PieChart = new Chart(pieChart,{
+
+        if (PieChart != undefined || PieChart !=null) {
+            PieChart.destroy();
+        }
+
+        PieChart = new Chart(pieChart,{
             type: 'doughnut',
             data: [],
             options: pieOptions
@@ -120,7 +135,7 @@ function setPrcChart(input){
 
                     var total = parseInt(dataset.data[0]) + parseInt(dataset.data[1]) + parseInt(dataset.data[2]);
                     var percentage = Math.floor(((currentValue/total) * 100)+0.5);
-                    return percentage + "%";
+                    return " " + percentage + "%";
                   }
                 }
               } 
@@ -137,7 +152,12 @@ function setPrcChart(input){
         pieLabels.push("Energy Recovery");
         pieLabels.push("Recycling");
         pieLabels.push("Waste");
-        var PieChart = new Chart(pieChart,{
+
+        if (PieChart != undefined || PieChart !=null) {
+            PieChart.destroy();
+        }
+        
+        PieChart = new Chart(pieChart,{
             type: 'doughnut',
             data: data2,
             options: pieOptions
