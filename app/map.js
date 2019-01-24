@@ -62,7 +62,7 @@ async function queryTripleStore (query) {
 async function initData() {
     // add NUTS0 choropleth to map
     const layer0 = await prepareNutsLevel(geodataNuts0);
-    layer0.addTo(layerGroup);
+    addChoroplethToMap(layer0)
 
     // create placeholder layer for NUTS2, b/c loading the RDF data for NUTS2 takes a while
     const layer2NoData = L.geoJson(geodataNuts2, {
@@ -79,11 +79,10 @@ async function initData() {
 
     // zoom based layer change
     mymap.on('zoomend', function (e) {
-        layerGroup.clearLayers();
         if (mymap.getZoom() > 6)
-            layer2.addTo(layerGroup)
+            addChoroplethToMap(layer2)
         else
-            layer0.addTo(layerGroup)
+            addChoroplethToMap(layer0)
     });
 
     // replace NUTS2 placeholder with actual chorolpleth layer
@@ -91,6 +90,43 @@ async function initData() {
     layerGroup.remove(layer2)
     layer2 = layer2WithData
     layer2.addToMap(mymap)
+}
+
+let legend = L.control();
+
+function addChoroplethToMap(layer){
+    layerGroup.clearLayers();
+    layer.addTo(layerGroup)
+    buildLegend(layer)
+
+}
+
+function buildLegend(layer){
+    mymap.removeControl(legend)
+
+    if(!layer.options.limits){
+        return;
+    }
+
+    legend = L.control({ position: 'bottomright' })
+    legend.onAdd = function (map) {
+      var div = L.DomUtil.create('div', 'info legend')
+      var limits = layer.options.limits
+      var colors = layer.options.colors
+      var labels = []
+  
+      // Add min & max
+      div.innerHTML = '<div class="labels"><div class="min">' + limits[0] + '</div> \
+              <div class="max">' + limits[limits.length - 1] + '</div></div>'
+  
+      limits.forEach(function (limit, index) {
+        labels.push('<li style="background-color: ' + colors[index] + '"></li>')
+      })
+  
+      div.innerHTML += '<ul>' + labels.join('') + '</ul>'
+      return div
+    }
+    legend.addTo(mymap)
 }
 
 async function prepareNutsLevel (url) {
