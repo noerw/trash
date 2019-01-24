@@ -8,6 +8,21 @@ var data = {
 
 };
 var options = {
+
+    scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'kg/Capita'
+          }
+        }],
+        xAxes: [{
+            scaleLabel: {
+              display: true,
+              labelString: 'Year'
+            }
+          }]
+      },   
     
     responsive: false,
     width:800,
@@ -71,7 +86,7 @@ function setPrcChart(input){
         var PieChart = new Chart(pieChart,{
             type: 'doughnut',
             data: [],
-            options: options
+            options: pieOptions
         });
 
         pieOptions = {
@@ -96,7 +111,19 @@ function setPrcChart(input){
             title: {
                 display: true,
                 text: 'Waste Distribution'
-            }
+            },
+            tooltips: {
+                callbacks: {
+                  label: function(tooltipItem, data) {
+                    var dataset = data.datasets[tooltipItem.datasetIndex];
+                    var currentValue = dataset.data[tooltipItem.index];
+
+                    var total = parseInt(dataset.data[0]) + parseInt(dataset.data[1]) + parseInt(dataset.data[2]);
+                    var percentage = Math.floor(((currentValue/total) * 100)+0.5);
+                    return percentage + "%";
+                  }
+                }
+              } 
         }
 
         const energyRecovery = input.energyRecovery.value;
