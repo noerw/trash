@@ -8,7 +8,7 @@ This project was developed in M. Sc. Goinformatics program. ”Waste production 
                 show on a leaflet choropleth map of Europe the respective garbage production per head and country.
 
 
-##Motivation
+## Motivation
 We humans produce more and more garbage. We do not want to tolerate this development any longer.
                     For this reason, we have taken a closer look at the amount of waste generated and found that the
                     reported waste production is differs greatly between countries and between regions.
@@ -18,7 +18,7 @@ We humans produce more and more garbage. We do not want to tolerate this develop
                     For now, we focus on the EU and regional levels.
                   
                   
-##Goals
+## Goals
  We live in the age of linked data. This allows us to link data and retrieve it through semantic
                      queries. But more importantly, it allows us to share information in a way that computers can read
                      automatically. That’s why we work with RDF. So every connection in RDF is coherent and traceable
@@ -29,7 +29,7 @@ We humans produce more and more garbage. We do not want to tolerate this develop
                      
                      
                      
- ##Tools used to Achieve the Goal and Outcomes
+ ## Tools used to Achieve the Goal and Outcomes
 For this tool we decided to use a leaflet choropleth map. This representation can be used
                     effectively
                     to report area values on virtually any scale, from global to local. In addition, the data can be
@@ -44,7 +44,7 @@ For this tool we decided to use a leaflet choropleth map. This representation ca
                     the form of graphs.
                     
                     
-##How RDF Data is build
+## How RDF Data is build
 Below you can see an example of the triplestore (RDF store).  The excerpt shows observation 
                     from the year 2004. The NUTS region is Germany. Two values are also transferred. One is per capita
                     waste generation and the other is energy recovery.
