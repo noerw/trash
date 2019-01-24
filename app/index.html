@@ -1,30 +1,11 @@
 <!doctype html>
-
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
     <title>Trash</title>
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-        crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-        crossorigin=""></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/leaflet-omnivore/leaflet-omnivore.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-
-    <script src="nuts/NUTS_RG_60M_2016_4326_LEVL_2.geojson" type="text/javascript"></script>
-    <script src="nuts/NUTS_RG_60M_2016_4326_LEVL_0.geojson" type="text/javascript"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
-
     <link rel="stylesheet" type="text/css" href="style.css">
-
 </head>
 
 <body>
@@ -55,13 +36,10 @@
         <div>
             <canvas id="wasteOverTime" width="400" height="400"></canvas>
         </div>
-        
+
         <div>
             <canvas id="wastePrc" width="400" height="400"></canvas>
         </div>
-        
-
-        
 
     </div>
 
@@ -69,11 +47,21 @@
         <div id="mapid" class="map"></div>
     </div>
 
+    <!-- dependencies -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+        crossorigin=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-choropleth@1.1.4/src/choropleth.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+
+    <!-- our geodata -->
+    <script src="nuts/NUTS_RG_60M_2016_4326_LEVL_2.geojson" type="text/javascript"></script>
+    <script src="nuts/NUTS_RG_60M_2016_4326_LEVL_0.geojson" type="text/javascript"></script>
+
+    <!-- application logic -->
     <script src="map.js"></script>
-
     <script src="charts.js"></script>
-
-
 </body>
 
 </html>
