@@ -123,6 +123,7 @@ function loadNUTS() {
             scale: ['yellow', 'red'], // chroma.js scale - include as many as you like
             steps: 15,
             mode: 'k', // q for quantile, e for equidistant, k for k-means
+            onEachFeature,
             style: {
                 color: '#fff', // border color
                 weight: 2,

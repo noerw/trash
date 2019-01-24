@@ -63,8 +63,17 @@ function setPrcChart(input){
         ]
     };
 
+
+    if(input  == null){
+        return;
+    }
+
+
+
     const energyRecovery = input.energyRecovery.value;
     const recycling = input.recycling.value;
+
+
     pieData.push(energyRecovery);
     pieData.push(recycling);
     pieData.push(input.wasteGeneration.value - energyRecovery - recycling);
