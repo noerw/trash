@@ -139,7 +139,9 @@ function loadNUTS() {
 
 async function onclick(e) {
     var nut = e.sourceTarget.feature.id;
-    document.getElementById('dataTitle').innerHTML = nut;
+    var name = e.sourceTarget.feature.properties.NUTS_NAME.toLowerCase();
+    name = name.charAt(0).toUpperCase() + name.slice(1);
+    document.getElementById('dataTitle').innerHTML = name;
     openNav();
 
     const json = await queryLatestWasteGenForNuts(nut);
@@ -148,7 +150,6 @@ async function onclick(e) {
 
     setLineChart(json.results.bindings);
 
-    console.log(pieData.results.bindings);
     setPrcChart(pieData.results.bindings[0]);
 }
 
