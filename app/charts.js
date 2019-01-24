@@ -8,10 +8,11 @@ var data = {
 
 };
 var options = {
-
+    
+    responsive: false,
+    width:800,
+    height:800,
 };
-
-
 
 function setLineChart(input){
     labels = [];
@@ -73,12 +74,30 @@ function setPrcChart(input){
             options: options
         });
 
+        pieOptions = {
+            responsive: false,
+            width:800,
+            height:800,
+            title: {
+            }
+        }
+        
 
 
         return;
 
 
     }else{
+
+        var pieOptions = {
+            responsive: false,
+            width:800,
+            height:800,
+            title: {
+                display: true,
+                text: 'Waste Distribution'
+            }
+        }
 
         const energyRecovery = input.energyRecovery.value;
         const recycling = input.recycling.value;
@@ -94,7 +113,7 @@ function setPrcChart(input){
         var PieChart = new Chart(pieChart,{
             type: 'doughnut',
             data: data2,
-            options: options
+            options: pieOptions
         });
 
     }
