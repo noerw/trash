@@ -114,15 +114,15 @@ function buildLegend(layer){
       var limits = layer.options.limits
       var colors = layer.options.colors
       var labels = []
-  
+
       // Add min & max
       div.innerHTML = '<div class="labels"><div class="min">' + limits[0] + '</div> \
               <div class="max">' + limits[limits.length - 1] + '</div></div>'
-  
+
       limits.forEach(function (limit, index) {
         labels.push('<li style="background-color: ' + colors[index] + '"></li>')
       })
-  
+
       div.innerHTML += '<ul>' + labels.join('') + '</ul>'
       return div
     }
@@ -194,9 +194,12 @@ function onEachFeature (feature, layer) {
             const nut = event.sourceTarget.feature.id;
             document.getElementById('dataTitle').innerHTML = nut;
             openNav();
+
             const json = await queryLatestWasteGenForNuts(nut)
             setLineChart(json.results.bindings);
-            setPrcChart(json.results.bindings);
+
+            const pieData = await queryLatestForNuts(nut);
+            setPrcChart(pieData.results.bindings[0]);
         },
     });
 }
