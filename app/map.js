@@ -28,6 +28,22 @@ async function queryLatestWasteGenForNuts (nutsCode) {
     return queryTripleStore(query);
 }
 
+async function queryLatestForNuts (nutsCode) {
+    const query = `
+      SELECT DISTINCT * WHERE {
+        ?obs a qb:Observation.
+        ?obs euwaste:refArea nuts:${nutsCode}.
+        ?obs euwaste:attrWastePerCapita ?wasteGeneration.
+        ?obs euwaste:attrRecycling ?recycling.
+        ?obs euwaste:attrEnergyRecovery ?energyRecovery.
+        ?obs euwaste:refPeriod ?year.
+      } ORDER BY DESC(?year)
+    `;
+
+    return queryTripleStore(query);
+}
+
+
 async function queryTripleStore (query) {
     const baseUrl = 'http://giv-oct.uni-muenster.de:8890/sparql?default-graph-uri=http%3A%2F%2Fcourse.geoinfo2018.org%2FG3&format=application/json&timeout=0&debug=on&query='
     const q = `
@@ -81,7 +97,6 @@ async function fetchWasteData (nutsCodes) {
     const wasteGeneration = {};
     for (const nutsCode of nutsCodes) {
         const json = await queryLatestWasteGenForNuts(nutsCode)
-        console.log(json)
 
         if (json.results.bindings.length > 1) {
             const id = json.results.bindings[0].obs.value.substring(json.results.bindings[0].obs.value.length - 2);
@@ -99,7 +114,7 @@ function loadNUTS() {
         geojson = L.geoJson(nutsLevel2, {
             onEachFeature,
             style: function (feature) {
-                console.log(feature)
+                //console.log(feature)
             }
         }).addTo(layerGroup);
     } else {
@@ -126,12 +141,14 @@ async function onclick(e) {
     document.getElementById('dataTitle').innerHTML = nut;
     openNav();
 
-    const json = await queryLatestWasteGenForNuts(nut)
+    const json = await queryLatestWasteGenForNuts(nut);
+
+    const pieData = await queryLatestForNuts(nut);
 
     setLineChart(json.results.bindings);
 
-    setPrcChart(json.results.bindings);
-
+    console.log(pieData.results.bindings);
+    setPrcChart(pieData.results.bindings[0]);
 }
 
 function onEachFeature(feature, layer) {
