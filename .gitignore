@@ -3,3 +3,6 @@
 node_modules
 *.log
 *.turtle
+*.mp4
+*.jpg
+*.mp3
