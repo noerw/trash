@@ -13,6 +13,13 @@ layerGroup.addTo(mymap);
 
 initData();
 
+function showLoadingIndicator (message) {
+    const el = document.querySelector('#loading-message')
+    if (!message) return el.classList.add('hidden')
+    el.classList.remove('hidden')
+    el.innerHTML = `<span class="nav-link"><img src="./loader.gif"/>&nbsp;${message}</span>`
+}
+
 //Build query to get max amount of waste for a given array of nut codes
 //Order desc to make the latest data always available at index 0
 async function queryLatestWasteGenForNuts0 (nutsCode) {
@@ -75,6 +82,7 @@ async function queryTripleStore (query) {
 
 async function initData() {
     // add NUTS0 choropleth to map
+    showLoadingIndicator('loading countries...')
     const layer0 = await prepareNutsLevel(geodataNuts0,queryLatestWasteGenForNuts0 );
     addChoroplethToMap(layer0)
 
@@ -100,10 +108,12 @@ async function initData() {
     });
 
     // replace NUTS2 placeholder with actual chorolpleth layer
+    showLoadingIndicator('loading regions...')
     const layer2WithData = await prepareNutsLevel(geodataNuts2, queryLatestWasteGenForNuts2);
     layerGroup.removeLayer(layer2)
     layer2 = layer2WithData
     if (mymap.getZoom() > 6) layer2.addTo(layerGroup)
+    showLoadingIndicator(false)
 }
 
 let legend = L.control();
