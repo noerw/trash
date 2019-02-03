@@ -11,18 +11,26 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=p
 var layerGroup = L.featureGroup();
 layerGroup.addTo(mymap);
 
+//initial requesting of RDF data
 initData();
 
-function showLoadingIndicator (message) {
+/**
+ * Function for handling the loading indicator that is displayed whenever data is requested.
+ * @param message 
+ */
+function showLoadingIndicator(message) {
     const el = document.querySelector('#loading-message')
     if (!message) return el.classList.add('hidden')
     el.classList.remove('hidden')
     el.innerHTML = `<span class="nav-link"><img src="./loader.gif"/>&nbsp;${message}</span>`
 }
 
-//Build query to get max amount of waste for a given array of nut codes
-//Order desc to make the latest data always available at index 0
-async function queryLatestWasteGenForNuts0 (nutsCode) {
+/**
+ * Function for querying the latest waste data for all NUTS0 shapes.
+ * The `SPARQL` query is build and the result of the `queryTripleStore` function with the build query.
+ * @param nutsCode 
+ */
+async function queryLatestWasteGenForNuts0(nutsCode) {
     const query = `
       SELECT DISTINCT * WHERE {
         ?obs a qb:Observation.
@@ -35,7 +43,12 @@ async function queryLatestWasteGenForNuts0 (nutsCode) {
     return queryTripleStore(query);
 }
 
-async function queryLatestWasteGenForNuts2 (nutsCode) {
+/**
+ * Function for querying the latest waste data for all NUTS2 shapes.
+ * The `SPARQL` query is build and the result of the `queryTripleStore` function with the build query.
+ * @param nutsCode 
+ */
+async function queryLatestWasteGenForNuts2(nutsCode) {
     const query = `
       SELECT DISTINCT * WHERE {
         ?obs a qb:Observation.
@@ -49,7 +62,12 @@ async function queryLatestWasteGenForNuts2 (nutsCode) {
     return queryTripleStore(query);
 }
 
-async function queryLatestForNuts (nutsCode) {
+/**
+ * Function for querying the latest waste, recycling and energy-recovery data for a given NUTS code.
+ * The `SPARQL` query is build and the result of the `queryTripleStore` function with the build query.
+ * @param nutsCode 
+ */
+async function queryLatestForNuts(nutsCode) {
     const query = `
       SELECT DISTINCT * WHERE {
         ?obs a qb:Observation.
@@ -64,9 +82,14 @@ async function queryLatestForNuts (nutsCode) {
     return queryTripleStore(query);
 }
 
-
-async function queryTripleStore (query) {
+/**
+ * Function for sending a query to a given triple store and receiving the result as a `JSON`.
+ * The prefixes are appended to the beginning of the query and send to the triple store using the `fetch` function.
+ * @param query 
+ */
+async function queryTripleStore(query) {
     const baseUrl = 'http://giv-oct.uni-muenster.de:8890/sparql?default-graph-uri=http%3A%2F%2Fcourse.geoinfo2018.org%2FG3&format=application/json&timeout=0&debug=on&query='
+    //building the query by appending the needed prefixes to the beginnig
     const q = `
         PREFIX euwaste: <http://course.geoinfo2018.org/G3#>
         PREFIX qb: <http://purl.org/linked-data/cube#>
@@ -80,10 +103,16 @@ async function queryTripleStore (query) {
     return json;
 }
 
+/**
+ * Function for initially loading data on application start.
+ * First, the NUTS0 region data is loaded and added to the map. Only after the NUTS0 regions are loaded
+ * the NUTS2 region data is loaded to reduce the time it takes to see something on the map.
+ * The NUTS2 regions are grayed out until all the data is fetched from the server.
+ */
 async function initData() {
     // add NUTS0 choropleth to map
     showLoadingIndicator('loading countries...')
-    const layer0 = await prepareNutsLevel(geodataNuts0,queryLatestWasteGenForNuts0 );
+    const layer0 = await prepareNutsLevel(geodataNuts0, queryLatestWasteGenForNuts0);
     addChoroplethToMap(layer0)
 
     // create placeholder layer for NUTS2, b/c loading the RDF data for NUTS2 takes a while
@@ -118,44 +147,57 @@ async function initData() {
 
 let legend = L.control();
 
-function addChoroplethToMap(layer){
+/**
+ * Function adding a choropleth layer to the map.
+ * First, all previous layers are removed to prevent layer chaos.
+ * @param layer 
+ */
+function addChoroplethToMap(layer) {
     layerGroup.clearLayers();
     layer.addTo(layerGroup)
     buildLegend(layer)
 }
 
-function buildLegend(layer){
+/**
+ * Function for building a legend for a given choropleth layer and add it tp the map.
+ * @param layer 
+ */
+function buildLegend(layer) {
     mymap.removeControl(legend)
 
-    if(!layer.options.limits){
+    if (!layer.options.limits) {
         return;
     }
 
     legend = L.control({ position: 'bottomright' })
     legend.onAdd = function (map) {
-      var div = L.DomUtil.create('div', 'info legend')
-      var limits = layer.options.limits
-      var colors = layer.options.colors
-      var labels = []
+        var div = L.DomUtil.create('div', 'info legend')
+        var limits = layer.options.limits
+        var colors = layer.options.colors
+        var labels = []
 
-      // Add min & max
-      div.innerHTML = 'Waste Generation in kg/Capita<div class="labels"><div class="min">' + Math.floor(limits[0]) + '</div> \
+        // Add min & max
+        div.innerHTML = 'Waste Generation in kg/Capita<div class="labels"><div class="min">' + Math.floor(limits[0]) + '</div> \
               <div class="max">' + Math.floor(limits[limits.length - 1]) + '</div></div>'
 
-      limits.forEach(function (limit, index) {
-        labels.push('<li style="background-color: ' + colors[index] + '"></li>')
-      })
+        limits.forEach(function (limit, index) {
+            labels.push('<li style="background-color: ' + colors[index] + '"></li>')
+        })
 
-      div.innerHTML += '<ul>' + labels.join('') + '</ul>'
-      return div
+        div.innerHTML += '<ul>' + labels.join('') + '</ul>'
+        return div
     }
     legend.addTo(mymap)
 }
 
-async function prepareNutsLevel (url, queryFunction) {
-    // fetch geojson
-    // const req = await fetch(url)
-    // const geojson = await req.json()
+/**
+ * Function for preprocessing the NUTS data.
+ * The waste generation is normalized by dividing it by the population of the given NUTS region.
+ * Returns the result of the `buildChoroplethLayer` function with a given geojson.
+ * @param url 
+ * @param queryFunction 
+ */
+async function prepareNutsLevel(url, queryFunction) {
     const geojson = url
 
     // apply RDF data to geojson
@@ -181,9 +223,12 @@ async function prepareNutsLevel (url, queryFunction) {
     return buildChoroplethLayer(geojson);
 }
 
-//Asyc fetch latest value for waste for every nut code in set of codes.
-//Push all values into an array and return max value of all.
-async function fetchWasteData (nutsCodes, queryFunction) {
+/**
+ * Function for fetching the latest values for waste generation for every NUTS code in a set of codes.
+ * @param nutsCodes 
+ * @param queryFunction 
+ */
+async function fetchWasteData(nutsCodes, queryFunction) {
     const results = {};
     for (const nutsCode of nutsCodes) {
         const json = await queryFunction(nutsCode)
@@ -199,11 +244,14 @@ async function fetchWasteData (nutsCodes, queryFunction) {
             }
         }
     }
-
     return results;
 }
 
-function buildChoroplethLayer (geojson) {
+/**
+ * Function for building a choropleth layer with a given `GeoJSON`.
+ * @param geojson 
+ */
+function buildChoroplethLayer(geojson) {
     return L.choropleth(geojson, {
         valueProperty: 'wasteGeneration', // geojson properties property
         scale: ['yellow', 'red'], // chroma.js scale - include as many as you like
@@ -218,8 +266,14 @@ function buildChoroplethLayer (geojson) {
     })
 }
 
-function onEachFeature (feature, layer) {
+/**
+ * Function for defining mouseover and click functionality of every shape of a choropleth layer.
+ * @param feature 
+ * @param layer 
+ */
+function onEachFeature(feature, layer) {
     layer.on({
+        //Mouseover displayes NUTS name and the last waste generation value in kg/capita
         mouseover: (event) => {
             event.target.setStyle({
                 weight: 3,
@@ -243,6 +297,7 @@ function onEachFeature (feature, layer) {
             }).bringToFront();
             mymap.closePopup();
         },
+        //Clicking on a shape opens side panel and visualizes additional information, if available, as a line and pie chart.
         click: async (event) => {
             const { NUTS_ID, NUTS_NAME } = event.target.feature.properties;
             const name = NUTS_NAME.charAt(0).toUpperCase() + NUTS_NAME.slice(1);
@@ -258,12 +313,18 @@ function onEachFeature (feature, layer) {
     });
 }
 
+/**
+ * Function for defining the side panel for the display of additional data as graphs, on open.
+ */
 function openNav() {
     document.getElementById("main").style.marginRight = "25%";
     document.getElementById("mySidenav").style.width = "25%";
     document.getElementById("mySidenav").style.display = "block";
 }
 
+/**
+ * Function for defining the side panel for the display of additional data as graphs, on close.
+ */
 function closeNav() {
     document.getElementById("main").style.marginRight = "0%";
     document.getElementById("mySidenav").style.display = "none";

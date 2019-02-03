@@ -32,6 +32,11 @@ var options = {
     height: 800,
 };
 
+/**
+ * Function for creating a line chart, using Chart.js.
+ * The graph visualizes the input data as a line chart.
+ * @param input 
+ */
 function setLineChart(input) {
     labels = [];
     datas = [];
@@ -68,6 +73,10 @@ function setLineChart(input) {
     });
 }
 
+/**
+ * Function for creating a pie chart, using Chart.js.
+ * The graph visualizes the input data as a pie chart.
+ */
 function setPrcChart(input) {
     console.log("newChart");
     pieLabels = [];
